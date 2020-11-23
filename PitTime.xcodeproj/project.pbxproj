@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0CF256B7AED00F8D835 /* HomeView.swift */; };
+		9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0D7256B7B0C00F8D835 /* UploadView.swift */; };
+		9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0DC256B7B2300F8D835 /* ProfileView.swift */; };
+		9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0E1256B7CE000F8D835 /* SignUpView.swift */; };
+		9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0ED256B7FA500F8D835 /* Extensions.swift */; };
+		9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */; };
+		9234A0FF256B840900F8D835 /* PitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0FE256B840900F8D835 /* PitModel.swift */; };
+		9234A10A256B881E00F8D835 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A109256B881E00F8D835 /* CardView.swift */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
 		92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5D256B77FF0091C1C4 /* ContentView.swift */; };
 		92C55A60256B78010091C1C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A5F256B78010091C1C4 /* Assets.xcassets */; };
@@ -33,6 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9234A0CF256B7AED00F8D835 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9234A0D7256B7B0C00F8D835 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		9234A0DC256B7B2300F8D835 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9234A0E1256B7CE000F8D835 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9234A0ED256B7FA500F8D835 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitArrayObject.swift; sourceTree = "<group>"; };
+		9234A0FE256B840900F8D835 /* PitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitModel.swift; sourceTree = "<group>"; };
+		9234A109256B881E00F8D835 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeApp.swift; sourceTree = "<group>"; };
 		92C55A5D256B77FF0091C1C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +88,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9234A0CE256B7AD800F8D835 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */,
+				92C55A5D256B77FF0091C1C4 /* ContentView.swift */,
+				9234A0E6256B7E1000F8D835 /* HomeView */,
+				9234A0E7256B7E3600F8D835 /* UploadView */,
+				9234A0E8256B7E3C00F8D835 /* ProfileView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9234A0E6256B7E1000F8D835 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				9234A0CF256B7AED00F8D835 /* HomeView.swift */,
+				9234A109256B881E00F8D835 /* CardView.swift */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		9234A0E7256B7E3600F8D835 /* UploadView */ = {
+			isa = PBXGroup;
+			children = (
+				9234A0D7256B7B0C00F8D835 /* UploadView.swift */,
+			);
+			name = UploadView;
+			sourceTree = "<group>";
+		};
+		9234A0E8256B7E3C00F8D835 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				9234A0DC256B7B2300F8D835 /* ProfileView.swift */,
+				9234A0E1256B7CE000F8D835 /* SignUpView.swift */,
+			);
+			name = ProfileView;
+			sourceTree = "<group>";
+		};
+		9234A0EC256B7F9500F8D835 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9234A0ED256B7FA500F8D835 /* Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		9234A0F5256B83C800F8D835 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */,
+				9234A0FE256B840900F8D835 /* PitModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		92C55A4F256B77FF0091C1C4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +166,9 @@
 		92C55A5A256B77FF0091C1C4 /* PitTime */ = {
 			isa = PBXGroup;
 			children = (
-				92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */,
-				92C55A5D256B77FF0091C1C4 /* ContentView.swift */,
+				9234A0F5256B83C800F8D835 /* Models */,
+				9234A0EC256B7F9500F8D835 /* Helpers */,
+				9234A0CE256B7AD800F8D835 /* Views */,
 				92C55A5F256B78010091C1C4 /* Assets.xcassets */,
 				92C55A64256B78010091C1C4 /* Info.plist */,
 				92C55A61256B78010091C1C4 /* Preview Content */,
@@ -259,8 +331,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */,
+				9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
+				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,
+				9234A0FF256B840900F8D835 /* PitModel.swift in Sources */,
+				9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */,
+				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
+				9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */,
+				9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
