@@ -17,7 +17,7 @@ struct HomeView: View {
             LazyVStack{
                 ForEach(pits.pitArray, id: \.self, content: { pit in
                     CardView(pit: pit)
-                    
+                        .padding(.vertical, 10)
                 })
             }
         })
