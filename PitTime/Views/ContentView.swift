@@ -35,7 +35,7 @@ struct ContentView: View {
             }
             
         }
-        .accentColor(Color.MyTheme.pinkColor)
+        .accentColor(.black)
     }
 }
 

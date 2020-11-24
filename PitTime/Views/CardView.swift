@@ -14,52 +14,57 @@ struct CardView: View {
     var image: UIImage = UIImage(named: "John")!
     
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
-            HStack{
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .cornerRadius(15)
-                
-                Text(pit.username)
-                    .font(.callout)
-                    .fontWeight(.medium)
-                    .foregroundColor(.primary)
-                
-                Spacer()
-            }
-            .padding(.all, 6)
-            
-            HStack{
-                Text("10月11日　7:10")
-                    .font(.title2)
-                    .fontWeight(.bold)
-            }
-            .padding(.all, 6)
-            
-            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
-                
-                Spacer()
-                
-                Button(action: {
+        ZStack{
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
+                HStack{
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30, alignment: .center)
+                        .cornerRadius(15)
                     
-                }, label: {
-                    Image(systemName: "heart.fill")
-                        .font(.body)
-                })
-                
-                Button(action: {
+                    Text(pit.username)
+                        .font(.callout)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
                     
-                }, label: {
-                    Image(systemName: "paperplane")
-                        .font(.body)
+                    Spacer()
+                }
+//                .padding(.all, 6)
+                
+                HStack{
+                    Text("10月11日　7:10")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+//                .padding(.all, 6)
+                
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "heart.fill")
+                            .font(.body)
+                    })
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "paperplane")
+                            .font(.body)
+                    })
                 })
+//                .padding(.all, 6)
+                .accentColor(.white)
             })
-            .padding(.all, 6)
-            .accentColor(.primary)
-        })
-        
+            .background(Color.MyTheme.orangeColor)
+        }
+        .border(Color.black,width: 2)
+        .padding(.horizontal, 5)
     }
 }
 
