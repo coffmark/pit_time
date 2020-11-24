@@ -15,6 +15,9 @@
 		9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */; };
 		9234A0FF256B840900F8D835 /* PitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0FE256B840900F8D835 /* PitModel.swift */; };
 		9234A10A256B881E00F8D835 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A109256B881E00F8D835 /* CardView.swift */; };
+		9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A117256C9F6E00F8D835 /* NFCWrite.swift */; };
+		9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A11C256CA04000F8D835 /* DateFormatter.swift */; };
+		9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A125256CAE6100F8D835 /* Enum & Structs.swift */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
 		92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5D256B77FF0091C1C4 /* ContentView.swift */; };
 		92C55A60256B78010091C1C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A5F256B78010091C1C4 /* Assets.xcassets */; };
@@ -49,6 +52,10 @@
 		9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitArrayObject.swift; sourceTree = "<group>"; };
 		9234A0FE256B840900F8D835 /* PitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitModel.swift; sourceTree = "<group>"; };
 		9234A109256B881E00F8D835 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9234A117256C9F6E00F8D835 /* NFCWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCWrite.swift; sourceTree = "<group>"; };
+		9234A11C256CA04000F8D835 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		9234A121256CA28800F8D835 /* PitTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitTime.entitlements; sourceTree = "<group>"; };
+		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeApp.swift; sourceTree = "<group>"; };
 		92C55A5D256B77FF0091C1C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				9234A0ED256B7FA500F8D835 /* Extensions.swift */,
+				9234A117256C9F6E00F8D835 /* NFCWrite.swift */,
+				9234A11C256CA04000F8D835 /* DateFormatter.swift */,
+				9234A125256CAE6100F8D835 /* Enum & Structs.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 		92C55A5A256B77FF0091C1C4 /* PitTime */ = {
 			isa = PBXGroup;
 			children = (
+				9234A121256CA28800F8D835 /* PitTime.entitlements */,
 				9234A0F5256B83C800F8D835 /* Models */,
 				9234A0EC256B7F9500F8D835 /* Helpers */,
 				9234A0CE256B7AD800F8D835 /* Views */,
@@ -331,15 +342,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */,
 				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */,
 				9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */,
+				9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
 				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,
 				9234A0FF256B840900F8D835 /* PitModel.swift in Sources */,
 				9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */,
 				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
 				9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */,
+				9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */,
 				9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PitTime/PitTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PitTime/Preview Content\"";
 				DEVELOPMENT_TEAM = 4L3H8AS5LU;
@@ -519,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PitTime/PitTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PitTime/Preview Content\"";
 				DEVELOPMENT_TEAM = 4L3H8AS5LU;
