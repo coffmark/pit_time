@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreNFC
 import UIKit
+import RealmSwift
 
 
 class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
@@ -97,10 +98,11 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                                 session.alertMessage = "WRITE NFC FAIL: \(error!.localizedDescription)"
                                 print("fail write : \(String(describing: error?.localizedDescription))")
                             } else {
-                                
-                                // to write
                                 session.alertMessage = "書き込むことに成功しました！"
                                 print("SUCCESS WRITE!!")
+                                RealmDataService.instance.StoreRealmDB(currentTime: currentTime)
+                                
+                                
                             }
                             session.invalidate()
                         }
@@ -120,7 +122,7 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                 }
                 
             }
-            }
+        }
             
     }
     
