@@ -20,6 +20,18 @@ struct UploadView: View {
                 Text("今日も1日をスタートしましよう！")
                     .font(.title3)
                     .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 90)
+                    .background(Color.MyTheme.orangeColor)
+                    .cornerRadius(20)
+            })
+            Button(action: {
+                RealmDataService.instance.fetchRealmDB()
+            }, label: {
+                Text("Realm Fetch Data")
+                    .font(.title3)
+                    .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
                     .frame(height: 90)
                     .background(Color.MyTheme.orangeColor)
