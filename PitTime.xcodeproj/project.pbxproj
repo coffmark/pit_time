@@ -28,6 +28,9 @@
 		9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7E5256DE7870091D593 /* OnboardingView.swift */; };
 		9274F7EC256DECC40091D593 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7EB256DECC40091D593 /* AuthService.swift */; };
 		9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F81E256DEFC70091D593 /* SignInWithApple.swift */; };
+		9274F827256E287D0091D593 /* OnboardingViewPart2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F826256E287D0091D593 /* OnboardingViewPart2.swift */; };
+		9274F82C256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F82B256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift */; };
+		9274F837256E2FEB0091D593 /* SignInWithGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */; };
 		929CC6C4256CBB4E00AC85DC /* RealmDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
 		92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5D256B77FF0091C1C4 /* ContentView.swift */; };
@@ -74,6 +77,9 @@
 		9274F7E5256DE7870091D593 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9274F7EB256DECC40091D593 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9274F81E256DEFC70091D593 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
+		9274F826256E287D0091D593 /* OnboardingViewPart2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPart2.swift; sourceTree = "<group>"; };
+		9274F82B256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonCustom.swift; sourceTree = "<group>"; };
+		9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogle.swift; sourceTree = "<group>"; };
 		929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataService.swift; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeApp.swift; sourceTree = "<group>"; };
@@ -158,7 +164,10 @@
 			children = (
 				9234A0DC256B7B2300F8D835 /* ProfileView.swift */,
 				9234A0E1256B7CE000F8D835 /* SignUpView.swift */,
+				9274F82B256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift */,
 				9274F7E5256DE7870091D593 /* OnboardingView.swift */,
+				9274F826256E287D0091D593 /* OnboardingViewPart2.swift */,
+				9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -584,6 +593,8 @@
 				9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */,
 				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */,
+				9274F82C256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift in Sources */,
+				9274F837256E2FEB0091D593 /* SignInWithGoogle.swift in Sources */,
 				9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */,
 				9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
@@ -592,6 +603,7 @@
 				929CC6C4256CBB4E00AC85DC /* RealmDataService.swift in Sources */,
 				9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */,
 				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
+				9274F827256E287D0091D593 /* OnboardingViewPart2.swift in Sources */,
 				9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */,
 				926F3278256DDD27004E1251 /* Time.swift in Sources */,
 				9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */,

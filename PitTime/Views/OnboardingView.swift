@@ -24,7 +24,7 @@ struct OnboardingView: View {
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Image(systemName: "arrowshape.turn.up.left.fill")
+                    Image(systemName: "arrow.left")
                         .font(.title)
                         .accentColor(.black)
                         .padding(.vertical, 40)
@@ -34,11 +34,11 @@ struct OnboardingView: View {
             }
             Spacer()
             Text("Welcome to ピッとたいむ!".uppercased())
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-                .accentColor(Color.MyTheme.blueColor)
+                .foregroundColor(Color.MyTheme.blueColor)
             
             Text("「ピッとたいむ」は時間管理を後押しするアプリです。")
                 .font(.headline)
@@ -46,22 +46,47 @@ struct OnboardingView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.black)
                 .padding()
-                .accentColor(Color.MyTheme.blueColor)
+                .foregroundColor(Color.MyTheme.blueColor)
             
             //MARK: SIGN IN WITH APPLE
             Button(action: {
                 SignInWithApple.instance.startSignInWithAppleFlow(view: self)
             }, label: {
-                Text("Sign In Apple")
+                SignInWithAppleButtonCustom()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 60)
+                    .padding(.horizontal, 20)
             })
             
             //MARK: SIGN IN WITH GOOGLE
-            
+            Button(action: {
+                SignInWithGoogle.instance.startSignInWithGoogleFlow(view: self)
+            }, label: {
+                HStack{
+                    Image(systemName: "globe")
+                    Text("Sign in with Google")
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 60)
+                .background(Color(.sRGB, red: 222/255, green: 82/255, blue: 70/255, opacity: 1.0))
+                .cornerRadius(9)
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .padding(.horizontal, 20)
+            })
+            .accentColor(.white)
             
             Spacer()
         })
         .background(Color.MyTheme.beigeColor)
         .edgesIgnoringSafeArea(.all)
+        .fullScreenCover(isPresented: $showOnboardingPart2, onDismiss:  {
+            self.presentationMode.wrappedValue.dismiss()
+        }, content: {
+            OnboardingViewPart2(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
+        })
+        .alert(isPresented: $showError) { () -> Alert in
+            Alert(title: Text("Error signingg in 🙁"))
+        }
     }
     
     //MARK: FUNCTIONS
@@ -77,6 +102,7 @@ struct OnboardingView: View {
                         self.email = email
                         self.providerID = providerID
                         self.provider = provider
+                        print("This is email -> \(email)")
                         self.showOnboardingPart2.toggle()
                     }else{
                         //ERROR
@@ -85,11 +111,29 @@ struct OnboardingView: View {
                     }
                 }else{
                     // EXISTING USER
+                    if let userID = returnedUserID {
+                        // SUCCESS, LOG IN TO APP
+                        AuthService.instance.logInUserToApp(userID: userID) { (success) in
+                            if success{
+                                print("Successfull log in existing user")
+                                self.presentationMode.wrappedValue.dismiss()
+                            }else{
+                                print("Error log in existing user into our app")
+                                self.showError.toggle()
+                            }
+                        }
+                    }else{
+                        // ERROR
+                        print("Error getting User ID from existing user to Firebase")
+                        self.showError.toggle()
+                    }
                 }
-                
+            }else{
+                // ERROR
+                print("Error getting into from  log in user to Firebase")
+                self.showError.toggle()
             }
         }
-        
     }
 }
 

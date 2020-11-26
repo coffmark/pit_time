@@ -47,6 +47,74 @@ class AuthService {
         }
     }
     
+    func logInUserToApp(userID: String, handler: @escaping (_ success: Bool) -> ()) {
+        // Get the users info
+        getUserInfo(forUserID: userID) { (returnedName, returnedBio) in
+            if let name = returnedName, let bio = returnedBio{
+                // Success
+                print("Success getting user info log in")
+                handler(true)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
+                    // Set the users info into our app
+                    UserDefaults.standard.set(userID, forKey: CurrentUserDefaults.userID)
+                    UserDefaults.standard.set(bio, forKey: CurrentUserDefaults.bio)
+                    UserDefaults.standard.set(name, forKey: CurrentUserDefaults.displayName)
+                }
+            }else{
+                // Error
+                print("Error getting user info while log in")
+                handler(false)
+            }
+        }
+    }
+    
+    func createNewUserInDatabase(name: String, email: String, providerID: String, provider: String, profileImage: UIImage, handler: @escaping (_ userID: String?) -> ()){
+        
+        // Set up a user Document with the user Collection
+        let document = REF_USERS.document()
+        let userID = document.documentID
+        
+        // Upload profile data to Firestore
+        let userData: [String: Any] = [
+            DatabaseUserField.displayName : name,
+            DatabaseUserField.email : email,
+            DatabaseUserField.providerID : providerID,
+            DatabaseUserField.provider : provider,
+            DatabaseUserField.userID : userID,
+            DatabaseUserField.bio : "",
+            DatabaseUserField.dateCreated : FieldValue.serverTimestamp()
+        ]
+        
+        document.setData(userData) {(error) in
+            if let error = error {
+                // Error
+                print("Error uploading data to user document")
+                handler(nil)
+            }else{
+                // Success
+                handler(userID)
+            }
+        }
+        
+    }
+    
+    
+    func getUserInfo(forUserID userID: String, handler: @escaping (_ name: String?, _ bio: String?) -> ()) {
+        REF_USERS.document(userID).getDocument { (documentSnapshot, error) in
+            if let document = documentSnapshot,
+               let name = document.get(DatabaseUserField.displayName) as? String,
+               let bio = document.get(DatabaseUserField.bio) as? String {
+                print("Success getting user info")
+                handler(name, bio)
+                return
+            }else{
+                print("Error getting user info")
+                handler(nil, nil)
+                return
+            }
+        }
+    }
     
     //MARK: PRIVATE FUNCTIONS
     private func checkIfUserExistsInDatabase(providerID: String, handler: @escaping (_ existingUserID: String?) -> ()) {
