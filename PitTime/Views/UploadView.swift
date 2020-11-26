@@ -27,7 +27,7 @@ struct UploadView: View {
                     .cornerRadius(20)
             })
             Button(action: {
-                RealmDataService.instance.fetchRealmDB()
+//                RealmDataService.instance.fetchRealmDB()
             }, label: {
                 Text("Realm Fetch Data")
                     .font(.title3)
