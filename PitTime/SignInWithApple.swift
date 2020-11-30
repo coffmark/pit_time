@@ -14,7 +14,6 @@ import FirebaseAuth
 
 class SignInWithApple : NSObject, ASAuthorizationControllerDelegate{
     
-    
     static let instance = SignInWithApple()
     var onboardingView: OnboardingView!
     

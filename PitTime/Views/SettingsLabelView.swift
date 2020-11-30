@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct SettingsLabelView: View {
+    var title: String
+    var imageName: String
+    
     var body: some View {
         HStack{
-            Text("Pit Time")
+            Text(title)
             Spacer()
-            Image(systemName: "dot.radiowaves.left.and.right")
+            Image(systemName: imageName)
         }
         .padding()
     }
@@ -20,6 +23,6 @@ struct SettingsLabelView: View {
 
 struct SettingsLabelView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsLabelView()
+        SettingsLabelView(title: "Pit Time", imageName: "dot.radiowaves.left.and.right")
     }
 }
