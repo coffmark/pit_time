@@ -20,27 +20,15 @@ struct OnboardingView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
-            HStack{
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "arrow.left")
-                        .font(.title)
-                        .accentColor(.black)
-                        .padding(.vertical, 40)
-                        .padding(.leading, 20)
-                })
-                Spacer()
-            }
             Spacer()
             Text("Welcome to ピッとたいむ!".uppercased())
                 .font(.title)
-                .fontWeight(.bold)
+                .fontWeight(.heavy)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .foregroundColor(Color.MyTheme.blueColor)
             
-            Text("「ピッとたいむ」は時間管理を後押しするアプリです。")
+            Text("「ピッとたいむ」は時間管理をみんなで後押しするアプリです。")
                 .font(.headline)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
@@ -74,6 +62,40 @@ struct OnboardingView: View {
                 .padding(.horizontal, 20)
             })
             .accentColor(.white)
+            
+            //MARK: SIGN IN ANONYMOUS
+            Button(action: {
+                
+            }, label: {
+                HStack{
+                    Image(systemName: "person.crop.circle.badge.exclam")
+                    Text("Sign in Anonymous")
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 60)
+                .background(Color(.darkGray))
+                .cornerRadius(9)
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .padding(.horizontal, 20)
+            })
+            .accentColor(.white)
+            
+            //MARK: RETURN TO THE PREVIOUS PAGE
+            Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }, label: {
+                HStack{
+                    Image(systemName: "arrowshape.turn.up.left.circle.fill")
+                    Text("BACK")
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 60)
+                .background(Color(.white))
+                .cornerRadius(9)
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .padding(.horizontal, 20)
+            })
+            .accentColor(Color(.lightGray))
             
             Spacer()
         })

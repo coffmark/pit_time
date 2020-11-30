@@ -54,7 +54,7 @@ class SignInWithApple : NSObject, ASAuthorizationControllerDelegate{
             }
             
             let email = appleIDCredential.email ?? ""
-            var name = "Your name here."
+            let name = "Your name here."
             
             if let fullName = appleIDCredential.fullName{
                 let formatter = PersonNameComponentsFormatter()
