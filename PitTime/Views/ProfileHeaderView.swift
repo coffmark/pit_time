@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    
+    @State var headerImage: UIImage = UIImage(named: "noimage")!
+    var displayName: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center, spacing: 20, content: {
+            Image(uiImage: headerImage)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 120, height: 120)
+                .background(Color(.systemPink))
+                .cornerRadius(40)
+            
+            Text(displayName.uppercased())
+                .font(.title)
+                .fontWeight(.bold)
+        })
+        .padding()
     }
 }
 
 struct ProfileHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeaderView()
+        ProfileHeaderView(displayName: "Ryosuke Kamimura")
+            .previewLayout(.sizeThatFits)
     }
 }
