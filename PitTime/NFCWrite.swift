@@ -13,20 +13,25 @@ import UIKit
 
 
 class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
     //MARK: PROPERTIES
     var session : NFCNDEFReaderSession?
+    var isShareOthers: Bool = false
     
     
     //MARK: PUBLIC FUNCTIONS
-    public func  beginScanning(){
+    public func  beginScanning(isShareOthers: Bool){
         guard NFCNDEFReaderSession.readingAvailable else{
             print("スキャンに対応されていない機種です。申し訳ございません。")
             return
         }
         session = NFCNDEFReaderSession(delegate: self, queue: .main, invalidateAfterFirstRead: false)
+        self.isShareOthers = isShareOthers
         session?.alertMessage = "データを書き込むのでNFCタグに近づけてください"
         session?.begin()
+        return
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
@@ -71,7 +76,7 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                     switch ndefStatus {
                     case .notSupported:
                         print("Not Supoort")
-                        session.alertMessage = "Tag is not NDEF complaint"
+                        session.alertMessage = "このタグはNDEFを実行することができませんでした😥"
                         session.invalidate()
                     case .readWrite:
                         // Writing code logic
@@ -98,9 +103,13 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                                 session.alertMessage = "WRITE NFC FAIL: \(error!.localizedDescription)"
                                 print("fail write : \(String(describing: error?.localizedDescription))")
                             } else {
-                                session.alertMessage = "書き込むことに成功しました！"
+                                session.alertMessage = "成功しました！🤩"
                                 print("SUCCESS WRITE!!")
-//                                RealmDataService.instance.StoreRealmDB(currentTime: currentTime)
+                                if self.isShareOthers{
+                                    self.postCloudStore(pitTime: currentTime)
+                                }else{
+                                    print("Not Share Others🥺")
+                                }
                                 
                                 
                             }
@@ -120,10 +129,8 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                         
                     }
                 }
-                
             }
         }
-            
     }
     
     //MARK: PRIVATE FUNCTIONS
@@ -138,6 +145,21 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
         print("Not Supoort")
         session.alertMessage = "Tag is not NDEF complaint"
         session.invalidate()
+    }
+    
+    private func postCloudStore(pitTime: String) {
+        print("POST CLOUD STORE")
+        guard let userID = currentUserID, let displayName = currentUserDisplayName else{
+            print("Error getting userID or displayName")
+            return
+        }
+        DataService.instance.uploadPost(pitTime: pitTime, displayName: displayName, userID: userID) { (success) in
+            if success{
+                print("Success Post!")
+            }else{
+                print("Error uploading post!")
+            }
+        }
     }
 }
 
