@@ -11,10 +11,12 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
+    let feedPosts = PitArrayObject(shuffled: false)
+    
     var body: some View {
         TabView{
             NavigationView{
-                HomeView(pits: PitArrayObject())
+                HomeView(pits: feedPosts)
             }
             .tabItem{
                 Image(systemName: "house.fill")
