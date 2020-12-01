@@ -15,7 +15,7 @@ class DataService{
     static let instance = DataService()
     private var REF_POSTS = DB_BASE.collection("posts")
     
-    //MARK: CREATE FUNCTIONS
+    //MARK: UPLOAD FUNCTIONS
     func uploadPost(pitTime: String, displayName: String, userID: String, handler: @escaping(_ success: Bool) -> ()){
         
         // Create new post document
@@ -43,5 +43,39 @@ class DataService{
             }
         }
         document.setData(postData)
+    }
+    
+    //MARK: DOWNLOAD FUNCTIONS
+    func downloadPostsForFeed(handler: @escaping(_ posts: [PitModel]) -> ()){
+        REF_POSTS.order(by: DatabasePostField.userID, descending: true).limit(to: 50).getDocuments { (querySnapshot, error) in
+            
+            handler(self.getPostFromSnapshot(querySnapshot: querySnapshot))
+        }
+    }
+    
+    
+    //MARK: PRIVATE FUNCTIONS
+    private func getPostFromSnapshot(querySnapshot: QuerySnapshot?) -> [PitModel] {
+        var postArray = [PitModel]()
+        if let snapshot = querySnapshot, snapshot.documents.count > 0{
+            for document in snapshot.documents{
+                if let userID = document.get(DatabasePostField.userID) as? String,
+                   let displayName = document.get(DatabasePostField.displayName) as? String,
+                   let timestamp = document.get(DatabasePostField.dateCreated) as? Timestamp{
+                    
+                    let pitTime = document.get(DatabasePostField.pitTime) as! String
+                    let date = timestamp.dateValue()
+                    let postID = document.documentID
+                
+                    let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitTime: pitTime)
+                    
+                    postArray.append(newPost)
+                }
+            }
+            return postArray
+        }else{
+            print("No documents in snapshot found for this user")
+            return postArray
+        }
     }
 }

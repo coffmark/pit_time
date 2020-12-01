@@ -11,12 +11,11 @@ import SwiftUI
 struct PitModel: Identifiable, Hashable {
     
     var id = UUID()
-    var timeID: String
+    var postID: String
     var userID: String
     var username: String
     var dateCreated: Date
-    var likeCount: Int
-    var likedByUser: Bool
+    var pitTime: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

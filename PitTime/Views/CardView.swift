@@ -33,7 +33,7 @@ struct CardView: View {
 //                .padding(.all, 6)
                 
                 HStack{
-                    Text("10月11日　7:10")
+                    Text(pit.pitTime)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -70,7 +70,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     
-    static var pit: PitModel = PitModel(timeID: "", userID: "", username: "John", dateCreated: Date(), likeCount: 3, likedByUser: false)
+    static var pit: PitModel = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitTime: "2020-11-30 22:56:49 +0000")
     
     static var previews: some View {
         CardView(pit: pit)
