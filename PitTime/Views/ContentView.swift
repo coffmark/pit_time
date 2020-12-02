@@ -11,12 +11,16 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
-    let feedPosts = PitArrayObject(shuffled: false)
+    @State var feedPosts = PitArrayObject(shuffled: false)
     
     var body: some View {
         TabView{
             NavigationView{
                 HomeView(pits: feedPosts)
+                    .onAppear(perform: {
+                        self.feedPosts = PitArrayObject(shuffled: false)
+                        print("Fetch FEED POSTS ")
+                    })
             }
             .tabItem{
                 Image(systemName: "house.fill")

@@ -23,6 +23,7 @@ struct HomeView: View {
         })
         .navigationBarTitle("Home")
         .navigationBarTitleDisplayMode(.inline)
+        .accentColor(Color.MyTheme.orangeColor)
     }
 }
 

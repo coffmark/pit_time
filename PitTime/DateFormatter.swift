@@ -24,6 +24,13 @@ class DateUtils {
         return formatter.date(from: string)!
     }
     
+    //String型のMonth --> "2020"
+    class func stringFromOnlyYear(date:Date) -> String{
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "YY"
+        return formatter.string(from: date)
+    }
+    
     // String型のMonth　--> "09"
     class func stringFromDateOnlyMonth(date: Date) -> String{
         let formatter: DateFormatter = DateFormatter()
