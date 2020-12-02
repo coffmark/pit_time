@@ -31,12 +31,9 @@ struct ProfileView: View {
                             }, label: {
                                 Image(systemName: "line.horizontal.3")
                             })
-                            .accentColor(colorScheme == .light ? Color.MyTheme.beigeColor : Color.MyTheme.orangeColor)
+                            .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
                                 .opacity(isMyProfile ? 1.0 : 0.0)
-                         
-                                
         )
-
         .sheet(isPresented: $showSettings, content: {
             SettingsView()
                 .preferredColorScheme(colorScheme)

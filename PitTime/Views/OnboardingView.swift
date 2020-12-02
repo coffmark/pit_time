@@ -17,24 +17,24 @@ struct OnboardingView: View {
     
     @State var showOnboardingPart2: Bool = false
     @State var showError: Bool = false
+    @State var isUnderImplementation: Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
             Spacer()
-            Text("Welcome to ピッとたいむ!".uppercased())
-                .font(.title)
-                .fontWeight(.heavy)
+            Text("Welcome to PIT Time!".uppercased())
+                .font(.largeTitle)
+                .fontWeight(.bold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .foregroundColor(Color.MyTheme.blueColor)
             
-            Text("「ピッとたいむ」は時間管理をみんなで後押しするアプリです。")
+            Text("「ピッとタイム」は時間管理をお手伝いするアプリです。")
                 .font(.headline)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
-                .foregroundColor(.black)
+                .foregroundColor(Color.MyTheme.beigeColor)
                 .padding()
-                .foregroundColor(Color.MyTheme.blueColor)
             
             //MARK: SIGN IN WITH APPLE
             Button(action: {
@@ -44,6 +44,7 @@ struct OnboardingView: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 60)
                     .padding(.horizontal, 20)
+                    .shadow(radius: 20)
             })
             
             //MARK: SIGN IN WITH GOOGLE
@@ -51,7 +52,7 @@ struct OnboardingView: View {
                 SignInWithGoogle.instance.startSignInWithGoogleFlow(view: self)
             }, label: {
                 HStack{
-                    Image(systemName: "globe")
+                    Image(systemName: "g.square")
                     Text("Sign in with Google")
                 }
                 .frame(maxWidth: .infinity)
@@ -60,12 +61,13 @@ struct OnboardingView: View {
                 .cornerRadius(9)
                 .font(.system(size: 25, weight: .medium, design: .default))
                 .padding(.horizontal, 20)
+                .shadow(radius: 20)
             })
             .accentColor(.white)
             
             //MARK: SIGN IN ANONYMOUS
             Button(action: {
-                
+                isUnderImplementation.toggle()
             }, label: {
                 HStack{
                     Image(systemName: "person.crop.circle.badge.exclam")
@@ -77,6 +79,7 @@ struct OnboardingView: View {
                 .cornerRadius(9)
                 .font(.system(size: 25, weight: .medium, design: .default))
                 .padding(.horizontal, 20)
+                .shadow(radius: 20)
             })
             .accentColor(.white)
             
@@ -90,16 +93,18 @@ struct OnboardingView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 60)
-                .background(Color(.white))
+                .background(Color(.lightGray))
+                .foregroundColor(.white)
                 .cornerRadius(9)
                 .font(.system(size: 25, weight: .medium, design: .default))
                 .padding(.horizontal, 20)
+                .shadow(radius: 20)
             })
             .accentColor(Color(.lightGray))
             
             Spacer()
         })
-        .background(Color.MyTheme.beigeColor)
+        .background(Color.MyTheme.orangeColor)
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $showOnboardingPart2, onDismiss:  {
             self.presentationMode.wrappedValue.dismiss()
@@ -109,6 +114,9 @@ struct OnboardingView: View {
         .alert(isPresented: $showError) { () -> Alert in
             Alert(title: Text("Error signingg in 🙁"))
         }
+        .alert(isPresented: $isUnderImplementation, content: {
+            Alert(title: Text("Sorry Please Wait😥"))
+        })
     }
     
     //MARK: FUNCTIONS

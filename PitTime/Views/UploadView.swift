@@ -14,23 +14,40 @@ struct UploadView: View {
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
-            Spacer()
-            Button(action: {
-                self.sessionWrite.beginScanning(isShareOthers: true)
-            }, label: {
-                Text("今日も1日をスタートしましよう！")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 90)
-                    .background(Color.MyTheme.orangeColor)
-                    .cornerRadius(20)
+        ZStack{
+            Color.MyTheme.blueColor
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack(alignment: .center, spacing: 40, content: {
+                Button(action: {
+                    self.sessionWrite.beginScanning(isShareOthers: false)
+                }, label: {
+                    Text("一人で頑張る！")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.MyTheme.beigeColor)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 90)
+                        .background(Color.MyTheme.orangeColor)
+                        .cornerRadius(20)
+                        .shadow(radius: 20)
+                })
+                Button(action: {
+                    self.sessionWrite.beginScanning(isShareOthers: true)
+                }, label: {
+                    Text("一緒に1日をスタートしましよう！")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.MyTheme.beigeColor)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 90)
+                        .background(Color.MyTheme.orangeColor)
+                        .cornerRadius(20)
+                        .shadow(radius: 20)
+                })
             })
-            Spacer()
-        })
-        .padding(.all, 30)
+        }
+        .padding(.all, 40)
         .background(Color.MyTheme.blueColor)
         .edgesIgnoringSafeArea(.all)
     }
