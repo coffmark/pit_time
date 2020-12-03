@@ -105,7 +105,9 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                             } else {
                                 session.alertMessage = "成功しました！🤩"
                                 print("SUCCESS WRITE!!")
+                                
                                 if self.isShareOthers{
+                                    // Share Firestore
                                     self.postCloudStore(pitTime: currentTime)
                                 }else{
                                     print("Not Share Others🥺")
