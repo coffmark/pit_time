@@ -19,6 +19,8 @@ struct OnboardingViewPart2: View {
     @State var imageSelected: UIImage = UIImage(named: "noimage")!
     @State var showError: Bool = false
     
+    let initialAnonymousName: String = "匿名"
+    
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
             Text("What's your name?")
@@ -39,7 +41,7 @@ struct OnboardingViewPart2: View {
             Button(action: {
                 createProfile()
             }, label: {
-                Text("Finish: Add Profile Picture")
+                Text("Finished!!")
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding()
@@ -60,6 +62,14 @@ struct OnboardingViewPart2: View {
         .alert(isPresented: $showError){() -> Alert in
             return Alert(title: Text("Error creating profile 😤"))
         }
+         
+        .onAppear(perform: {
+            if displayName == initialAnonymousName{
+                displayName = ""
+            }else{
+                return
+            }
+        })
     }
     
     //MARK: FUNCTIONS
