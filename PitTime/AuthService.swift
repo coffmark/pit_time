@@ -118,6 +118,7 @@ class AuthService {
         
     }
     
+
     
     func getUserInfo(forUserID userID: String, handler: @escaping (_ name: String?, _ bio: String?) -> ()) {
         REF_USERS.document(userID).getDocument { (documentSnapshot, error) in

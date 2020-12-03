@@ -33,7 +33,7 @@ struct OnboardingView: View {
                 .font(.headline)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Color.MyTheme.beigeColor)
+                .foregroundColor(.white)
                 .padding()
             
             //MARK: SIGN IN WITH APPLE
@@ -67,7 +67,7 @@ struct OnboardingView: View {
             
             //MARK: SIGN IN ANONYMOUS
             Button(action: {
-                isUnderImplementation.toggle()
+                SignInAnonymous.instance.signInAnonymous(view: self)
             }, label: {
                 HStack{
                     Image(systemName: "person.crop.circle.badge.exclam")
@@ -83,7 +83,7 @@ struct OnboardingView: View {
             })
             .accentColor(.white)
             
-            //MARK: RETURN TO THE PREVIOUS PAGE
+            //MARK: Go TO PREVIOUS PAGE
             Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
             }, label: {
@@ -164,6 +164,20 @@ struct OnboardingView: View {
                 self.showError.toggle()
             }
         }
+    }
+    
+    func connectToFirebaseForAnonymous(name: String, email: String, provider: String, isAnonymous: Bool){
+        if isAnonymous{
+            self.displayName = name
+            self.email = email
+            self.provider = provider
+            print("THIS ACCOUT IS ANONYMOUS")
+            self.showOnboardingPart2.toggle()
+        }else{
+            print("Error log in Anonymous")
+            self.showError.toggle()
+        }
+
     }
 }
 
