@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
@@ -17,10 +18,6 @@ struct ContentView: View {
         TabView{
             NavigationView{
                 HomeView(pits: feedPosts)
-                    .onAppear(perform: {
-                        self.feedPosts = PitArrayObject(shuffled: false)
-                        print("Fetch FEED POSTS ")
-                    })
             }
             .tabItem{
                 Image(systemName: "house.fill")
@@ -29,6 +26,9 @@ struct ContentView: View {
             
             NavigationView{
                 UploadView()
+                    .onDisappear(perform: {
+                        self.feedPosts = PitArrayObject(shuffled: false)
+                    })
             }
             .tabItem{
                 Image(systemName: "square.and.arrow.up.fill")
@@ -49,7 +49,7 @@ struct ContentView: View {
             }
             
         }
-        .accentColor(.black)
+        .accentColor(colorScheme == .light ? .black : Color.MyTheme.orangeColor)
     }
 }
 

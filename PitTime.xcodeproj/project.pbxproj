@@ -10,6 +10,7 @@
 		13BF9F48132201067B973D54 /* Pods_PitTime_PitTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D15A2C3048B5B410BC38E7 /* Pods_PitTime_PitTimeUITests.framework */; };
 		259D3770C1F2D026A04C04DC /* Pods_PitTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4377777F5C6B1DA1BF3997E6 /* Pods_PitTimeTests.framework */; };
 		766BC46F330BBEE1234698C9 /* Pods_PitTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398F1940113472F2E216EE04 /* Pods_PitTime.framework */; };
+		92226CD325786BA3003213CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92226CD225786BA3003213CD /* Assets.xcassets */; };
 		922732862574AF1500FE37EC /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922732852574AF1500FE37EC /* SettingsRowView.swift */; };
 		9227328B2574BAF900FE37EC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227328A2574BAF900FE37EC /* DataService.swift */; };
 		9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0CF256B7AED00F8D835 /* HomeView.swift */; };
@@ -23,7 +24,6 @@
 		9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A117256C9F6E00F8D835 /* NFCWrite.swift */; };
 		9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A11C256CA04000F8D835 /* DateFormatter.swift */; };
 		9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A125256CAE6100F8D835 /* Enum & Structs.swift */; };
-		926F3278256DDD27004E1251 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F3277256DDD27004E1251 /* Time.swift */; };
 		926F328A256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328B256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328C256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
@@ -36,10 +36,10 @@
 		9274F83C256F347D0091D593 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F83B256F347D0091D593 /* SettingsView.swift */; };
 		9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F843256F34E90091D593 /* ProfileHeaderView.swift */; };
 		92895C102574847D00330927 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92895C0F2574847C00330927 /* SettingsLabelView.swift */; };
+		9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */; };
 		929CC6C4256CBB4E00AC85DC /* RealmDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
 		92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5D256B77FF0091C1C4 /* ContentView.swift */; };
-		92C55A60256B78010091C1C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A5F256B78010091C1C4 /* Assets.xcassets */; };
 		92C55A63256B78010091C1C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A62256B78010091C1C4 /* Preview Assets.xcassets */; };
 		92C55A6E256B78020091C1C4 /* PitTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A6D256B78020091C1C4 /* PitTimeTests.swift */; };
 		92C55A79256B78020091C1C4 /* PitTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A78256B78020091C1C4 /* PitTimeUITests.swift */; };
@@ -65,6 +65,7 @@
 /* Begin PBXFileReference section */
 		398F1940113472F2E216EE04 /* Pods_PitTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PitTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4377777F5C6B1DA1BF3997E6 /* Pods_PitTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PitTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92226CD225786BA3003213CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		922732852574AF1500FE37EC /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		9227328A2574BAF900FE37EC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9234A0CF256B7AED00F8D835 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		9234A11C256CA04000F8D835 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9234A121256CA28800F8D835 /* PitTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitTime.entitlements; sourceTree = "<group>"; };
 		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
-		926F3277256DDD27004E1251 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		926F3289256DDFCC004E1251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info/PitTime/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9274F7E5256DE7870091D593 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9274F7EB256DECC40091D593 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -90,11 +90,11 @@
 		9274F83B256F347D0091D593 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9274F843256F34E90091D593 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		92895C0F2574847C00330927 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
+		9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataService.swift; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeApp.swift; sourceTree = "<group>"; };
 		92C55A5D256B77FF0091C1C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		92C55A5F256B78010091C1C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92C55A62256B78010091C1C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92C55A64256B78010091C1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92C55A69256B78020091C1C4 /* PitTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +202,6 @@
 			children = (
 				9234A0F6256B83EB00F8D835 /* PitArrayObject.swift */,
 				9234A0FE256B840900F8D835 /* PitModel.swift */,
-				926F3277256DDD27004E1251 /* Time.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,10 +271,11 @@
 				9234A0F5256B83C800F8D835 /* Models */,
 				9234A0EC256B7F9500F8D835 /* Helpers */,
 				9234A0CE256B7AD800F8D835 /* Views */,
-				92C55A5F256B78010091C1C4 /* Assets.xcassets */,
 				926F3289256DDFCC004E1251 /* GoogleService-Info.plist */,
+				92226CD225786BA3003213CD /* Assets.xcassets */,
 				92C55A64256B78010091C1C4 /* Info.plist */,
 				92C55A61256B78010091C1C4 /* Preview Content */,
+				9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */,
 			);
 			path = PitTime;
 			sourceTree = "<group>";
@@ -440,7 +440,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				92C55A63256B78010091C1C4 /* Preview Assets.xcassets in Resources */,
-				92C55A60256B78010091C1C4 /* Assets.xcassets in Resources */,
+				9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */,
+				92226CD325786BA3003213CD /* Assets.xcassets in Resources */,
 				926F328A256DDFCC004E1251 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,7 +625,6 @@
 				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
 				9274F827256E287D0091D593 /* OnboardingViewPart2.swift in Sources */,
 				9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */,
-				926F3278256DDD27004E1251 /* Time.swift in Sources */,
 				9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */,
 				9274F7EC256DECC40091D593 /* AuthService.swift in Sources */,
 				9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */,
@@ -802,7 +802,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kamimura.PitTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -826,7 +826,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kamimura.PitTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
