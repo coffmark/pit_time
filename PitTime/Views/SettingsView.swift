@@ -13,38 +13,44 @@ struct SettingsView: View {
     var body: some View {
         NavigationView{
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-                
-                //MARK: SECTION 1: PIT-TIME
-                GroupBox(label:
-                            SettingsLabelView(title: "Pit Time", imageName: "dot.radiowaves.left.and.right"),
-                         content: {
-                            HStack {
-                                Image("noimage")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 120, height: 120, alignment: .center)
-                                    .cornerRadius(10)
-                                VStack{
-                                    Text("ピッとたいむは、あなたのための時間管理アプリ")
-                                        .font(.footnote)
-                                    Spacer()
-                                    Text("必要なもの: NFCタグ")
-                                        .font(.body)
-                                        .foregroundColor(Color.MyTheme.blueColor)
+                VStack(alignment: .center, spacing: 20, content: {
+                    
+                    //MARK: SECTION 1: PIT-TIME
+                    GroupBox(label:
+                                SettingsLabelView(title: "Pit Time", imageName: "dot.radiowaves.left.and.right"),
+                             content: {
+                                HStack {
+                                    Image("noimage")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 120, height: 120, alignment: .center)
+                                        .cornerRadius(10)
+                                    VStack{
+                                        Text("ピッとたいむは、あなたのための時間管理アプリ")
+                                            .font(.footnote)
+                                        Spacer()
+                                        Text("必要なもの: NFCタグ")
+                                            .font(.body)
+                                            .foregroundColor(Color.MyTheme.blueColor)
+                                    }
                                 }
-                            }
-                         }
-                )
-                
-                //MARK: SECTION 2: PROFILE
-                GroupBox(
-                    label:
-                        SettingsLabelView(title: "PROFILE", imageName: "person"),
-                    content: {
-                        Button(action: {
-                            signOut()
-                        }, label: {
-                            SettingsRowView(text: "Sign Out")
+                             }
+                    )
+                    
+                    //MARK: SECTION 2: PROFILE
+                    GroupBox(
+                        label:
+                            SettingsLabelView(title: "PROFILE", imageName: "person"),
+                        content: {
+                            Button(action: {
+                                signOut()
+                            }, label: {
+                                SettingsRowView(text: "Sign Out")
+                            })
+                        })
+                    
+                    GroupBox(label: SettingsLabelView(title: "Contact", imageName: "envelope.open.fill"), content: {
+                        Text("info.ryosuke.kamimura@gmail.com")
                     })
                 })
             })
