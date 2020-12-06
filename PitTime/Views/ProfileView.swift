@@ -15,29 +15,33 @@ struct ProfileView: View {
     var isMyProfile: Bool
     
     @State var showSettings: Bool = false
-   
+    @State var showChangeImage: Bool = false
     
     var body: some View {
-        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-            ProfileHeaderView(displayName: profileDisplayName)
-            Divider()
-            
-        })
+        VStack(alignment: .center, spacing: 20) {
+            ScrollView(.vertical,showsIndicators: false, content: {
+                ProfileHeaderView(displayName: profileDisplayName)
+                Divider()
+            })
+        }
         .navigationBarTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing:
-                            Button(action: {
-                                showSettings.toggle()
-                            }, label: {
-                                Image(systemName: "line.horizontal.3")
-                            })
-                            .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
-                                .opacity(isMyProfile ? 1.0 : 0.0)
-        )
-        .sheet(isPresented: $showSettings, content: {
-            SettingsView()
-                .preferredColorScheme(colorScheme)
-        })
+        .navigationBarItems(
+            trailing:
+                Button(action: {
+                    showSettings.toggle()
+                }, label: {
+                    Image(systemName: "line.horizontal.3")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                })
+                .sheet(isPresented: $showSettings, content: {
+                    SettingsView()
+                        .preferredColorScheme(colorScheme)
+                })
+                .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
+                .opacity(isMyProfile ? 1.0 : 0.0)
+            )
     }
 }
 

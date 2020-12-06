@@ -12,6 +12,7 @@
 		766BC46F330BBEE1234698C9 /* Pods_PitTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398F1940113472F2E216EE04 /* Pods_PitTime.framework */; };
 		92226CD325786BA3003213CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92226CD225786BA3003213CD /* Assets.xcassets */; };
 		92226CE72578A827003213CD /* SignInAnonymous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92226CE62578A827003213CD /* SignInAnonymous.swift */; };
+		92226D2E257AFD27003213CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92226D2D257AFD27003213CD /* ImagePicker.swift */; };
 		922732862574AF1500FE37EC /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922732852574AF1500FE37EC /* SettingsRowView.swift */; };
 		9227328B2574BAF900FE37EC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227328A2574BAF900FE37EC /* DataService.swift */; };
 		9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A0CF256B7AED00F8D835 /* HomeView.swift */; };
@@ -28,6 +29,7 @@
 		926F328A256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328B256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328C256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
+		926FA3D5257C973B005530FA /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FA3D4257C973B005530FA /* PostImageView.swift */; };
 		9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7E5256DE7870091D593 /* OnboardingView.swift */; };
 		9274F7EC256DECC40091D593 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7EB256DECC40091D593 /* AuthService.swift */; };
 		9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F81E256DEFC70091D593 /* SignInWithApple.swift */; };
@@ -38,7 +40,6 @@
 		9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F843256F34E90091D593 /* ProfileHeaderView.swift */; };
 		92895C102574847D00330927 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92895C0F2574847C00330927 /* SettingsLabelView.swift */; };
 		9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */; };
-		929CC6C4256CBB4E00AC85DC /* RealmDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
 		92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5D256B77FF0091C1C4 /* ContentView.swift */; };
 		92C55A63256B78010091C1C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A62256B78010091C1C4 /* Preview Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		4377777F5C6B1DA1BF3997E6 /* Pods_PitTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PitTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92226CD225786BA3003213CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92226CE62578A827003213CD /* SignInAnonymous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAnonymous.swift; sourceTree = "<group>"; };
+		92226D2D257AFD27003213CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		922732852574AF1500FE37EC /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		9227328A2574BAF900FE37EC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9234A0CF256B7AED00F8D835 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		9234A121256CA28800F8D835 /* PitTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitTime.entitlements; sourceTree = "<group>"; };
 		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
 		926F3289256DDFCC004E1251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info/PitTime/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		926FA3D4257C973B005530FA /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
 		9274F7E5256DE7870091D593 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9274F7EB256DECC40091D593 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9274F81E256DEFC70091D593 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		9274F843256F34E90091D593 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		92895C0F2574847C00330927 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataService.swift; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeApp.swift; sourceTree = "<group>"; };
 		92C55A5D256B77FF0091C1C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,8 @@
 				9274F843256F34E90091D593 /* ProfileHeaderView.swift */,
 				92895C0F2574847C00330927 /* SettingsLabelView.swift */,
 				922732852574AF1500FE37EC /* SettingsRowView.swift */,
+				92226D2D257AFD27003213CD /* ImagePicker.swift */,
+				926FA3D4257C973B005530FA /* PostImageView.swift */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -231,17 +235,8 @@
 			children = (
 				9274F81D256DEFB70091D593 /* SignInProviders */,
 				9274F7EA256DECB40091D593 /* Firebase */,
-				929CC6C2256CBB3F00AC85DC /* Realm */,
 			);
 			name = Services;
-			sourceTree = "<group>";
-		};
-		929CC6C2256CBB3F00AC85DC /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				929CC6C3256CBB4E00AC85DC /* RealmDataService.swift */,
-			);
-			name = Realm;
 			sourceTree = "<group>";
 		};
 		92C55A4F256B77FF0091C1C4 = {
@@ -610,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */,
+				926FA3D5257C973B005530FA /* PostImageView.swift in Sources */,
 				9227328B2574BAF900FE37EC /* DataService.swift in Sources */,
 				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				92895C102574847D00330927 /* SettingsLabelView.swift in Sources */,
@@ -622,8 +618,8 @@
 				9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
 				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,
+				92226D2E257AFD27003213CD /* ImagePicker.swift in Sources */,
 				9234A0FF256B840900F8D835 /* PitModel.swift in Sources */,
-				929CC6C4256CBB4E00AC85DC /* RealmDataService.swift in Sources */,
 				9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */,
 				9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */,
 				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
