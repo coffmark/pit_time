@@ -17,9 +17,10 @@ struct OnboardingViewPart2: View {
     @Binding var provider: String
     
     @State var imageSelected: UIImage = UIImage(named: "noimage")!
-    @State var showError: Bool = false
-    
     let initialAnonymousName: String = "匿名"
+    
+    // Alert
+    @State var showError: Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
@@ -62,7 +63,8 @@ struct OnboardingViewPart2: View {
         .alert(isPresented: $showError){() -> Alert in
             return Alert(title: Text("Error creating profile 😤"))
         }
-         
+        
+        // Hide Anonymous Name
         .onAppear(perform: {
             if displayName == initialAnonymousName{
                 displayName = ""
@@ -87,9 +89,7 @@ struct OnboardingViewPart2: View {
                         // return to app
                         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
                             self.presentationMode.wrappedValue.dismiss()
-                        }
-                        
-                        
+                        } 
                     }else{
                         print("Error logging in!")
                         self.showError.toggle()

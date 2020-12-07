@@ -179,10 +179,8 @@
 				9274F82B256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift */,
 				9274F7E5256DE7870091D593 /* OnboardingView.swift */,
 				9274F826256E287D0091D593 /* OnboardingViewPart2.swift */,
-				9274F83B256F347D0091D593 /* SettingsView.swift */,
 				9274F843256F34E90091D593 /* ProfileHeaderView.swift */,
-				92895C0F2574847C00330927 /* SettingsLabelView.swift */,
-				922732852574AF1500FE37EC /* SettingsRowView.swift */,
+				926FA3EA257DB791005530FA /* SettingsView */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -205,6 +203,16 @@
 				9234A0FE256B840900F8D835 /* PitModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		926FA3EA257DB791005530FA /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				9274F83B256F347D0091D593 /* SettingsView.swift */,
+				92895C0F2574847C00330927 /* SettingsLabelView.swift */,
+				922732852574AF1500FE37EC /* SettingsRowView.swift */,
+			);
+			name = SettingsView;
 			sourceTree = "<group>";
 		};
 		9274F7EA256DECB40091D593 /* Firebase */ = {
