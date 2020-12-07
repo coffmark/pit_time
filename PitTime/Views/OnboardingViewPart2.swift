@@ -18,7 +18,6 @@ struct OnboardingViewPart2: View {
     let sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @State var imageSelected: UIImage = UIImage(named: "noimage")!
-    @State var showError: Bool = false
     
     @State var showImagePicker: Bool = false
     

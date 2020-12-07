@@ -2,7 +2,7 @@
 //  ImagePicker.swift
 //  PitTime
 //
-//  Created by 神村亮佑 on 2020/12/05.
+//  Created by 神村亮佑 on 2020/12/07.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct ImagePicker: UIViewControllerRepresentable{
     
     @Environment(\.presentationMode) var presentaionMode
     @Binding var imageSelected: UIImage
-    var sourceType: UIImagePickerController.SourceType
+    let sourceType: UIImagePickerController.SourceType
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -43,9 +43,6 @@ struct ImagePicker: UIViewControllerRepresentable{
                 parent.imageSelected = image
                 // dismiss the screen
                 parent.presentaionMode.wrappedValue.dismiss()
-                print("Image Picker View Dismiss")
-            }else{
-                print("Error Image Picker")
             }
         }
     }
