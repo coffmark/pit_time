@@ -11,8 +11,8 @@ struct ProfileHeaderView: View {
     @Environment(\.presentationMode) var presentationMode
     let sourceType: UIImagePickerController.SourceType = .photoLibrary
         
-    @State var headerImage: UIImage = UIImage(named: "noimage")!
-    var displayName: String
+    @Binding var profileImage: UIImage
+    @Binding var profileDisplayName: String
     
     @State var showProfileImage: Bool = false
     
@@ -25,32 +25,30 @@ struct ProfileHeaderView: View {
                 // change Image
                 self.showProfileImage.toggle()
             }, label: {
-                Image(uiImage: headerImage)
+                Image(uiImage: profileImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 120, height: 120)
                     .background(Color(.systemPink))
                     .cornerRadius(40)
             })
-            .sheet(isPresented: $showProfileImage, onDismiss: onDismiss, content: {
-                ImagePicker(imageSelected: $headerImage, sourceType: sourceType)
+            .sheet(isPresented: $showProfileImage, content: {
+                ImagePicker(imageSelected: $profileImage, sourceType: sourceType)
             })
-            Text(displayName.uppercased())
+            Text(profileDisplayName.uppercased())
                 .font(.title)
                 .fontWeight(.bold)
         })
     }
-    
-    func onDismiss(){
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-            showProfileImage.toggle()
-        }
-    }
 }
 
 struct ProfileHeaderView_Previews: PreviewProvider {
+    
+    @State static var uiImage: UIImage = UIImage(named: "noimage")!
+    @State static var profileDisplayPreviewName: String = "Ryosuke"
+    
     static var previews: some View {
-        ProfileHeaderView(displayName: "Ryosuke Kamimura")
+        ProfileHeaderView(profileImage: $uiImage, profileDisplayName: $profileDisplayPreviewName)
             .previewLayout(.sizeThatFits)
     }
 }

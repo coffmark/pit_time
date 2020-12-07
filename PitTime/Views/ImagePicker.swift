@@ -10,14 +10,14 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable{
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentaionMode
     @Binding var imageSelected: UIImage
     var sourceType: UIImagePickerController.SourceType
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> some UIImagePickerController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
+        picker.sourceType = sourceType
         picker.allowsEditing = true
         return picker
     }
@@ -37,12 +37,15 @@ struct ImagePicker: UIViewControllerRepresentable{
             self.parent = parent
         }
         
-        private func imagePickerController(_ picker: UIImagePickerController, didFinishPickerMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage {
                 // select the image for our app
                 parent.imageSelected = image
                 // dismiss the screen
-                parent.presentationMode.wrappedValue.dismiss()
+                parent.presentaionMode.wrappedValue.dismiss()
+                print("Image Picker View Dismiss")
+            }else{
+                print("Error Image Picker")
             }
         }
     }

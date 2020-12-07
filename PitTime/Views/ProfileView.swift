@@ -16,11 +16,12 @@ struct ProfileView: View {
     
     @State var showSettings: Bool = false
     @State var showChangeImage: Bool = false
+    @State var profileImage: UIImage = UIImage(named: "noimage")!
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             ScrollView(.vertical,showsIndicators: false, content: {
-                ProfileHeaderView(displayName: profileDisplayName)
+                ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
             })
         }

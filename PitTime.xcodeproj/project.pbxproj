@@ -30,6 +30,7 @@
 		926F328B256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328C256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926FA3D5257C973B005530FA /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FA3D4257C973B005530FA /* PostImageView.swift */; };
+		926FA3E3257C9FE2005530FA /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FA3E2257C9FE2005530FA /* ImageManager.swift */; };
 		9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7E5256DE7870091D593 /* OnboardingView.swift */; };
 		9274F7EC256DECC40091D593 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F7EB256DECC40091D593 /* AuthService.swift */; };
 		9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F81E256DEFC70091D593 /* SignInWithApple.swift */; };
@@ -86,6 +87,7 @@
 		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
 		926F3289256DDFCC004E1251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info/PitTime/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926FA3D4257C973B005530FA /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
+		926FA3E2257C9FE2005530FA /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		9274F7E5256DE7870091D593 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9274F7EB256DECC40091D593 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9274F81E256DEFC70091D593 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
@@ -211,6 +213,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		926FA3D9257C9FA9005530FA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				926FA3E2257C9FE2005530FA /* ImageManager.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		9274F7EA256DECB40091D593 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 		92C55A5A256B77FF0091C1C4 /* PitTime */ = {
 			isa = PBXGroup;
 			children = (
+				926FA3D9257C9FA9005530FA /* Utilities */,
 				929CC6C1256CBB3300AC85DC /* Services */,
 				9234A121256CA28800F8D835 /* PitTime.entitlements */,
 				9234A0F5256B83C800F8D835 /* Models */,
@@ -627,6 +638,7 @@
 				9234A0D8256B7B0C00F8D835 /* UploadView.swift in Sources */,
 				9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */,
 				9274F7EC256DECC40091D593 /* AuthService.swift in Sources */,
+				926FA3E3257C9FE2005530FA /* ImageManager.swift in Sources */,
 				9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */,
 				9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */,
 				9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */,
