@@ -15,9 +15,12 @@ struct OnboardingViewPart2: View {
     @Binding var email: String
     @Binding var providerID: String
     @Binding var provider: String
+    let sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @State var imageSelected: UIImage = UIImage(named: "noimage")!
     @State var showError: Bool = false
+    
+    @State var showImagePicker: Bool = false
     
     let initialAnonymousName: String = "匿名"
     
@@ -41,7 +44,7 @@ struct OnboardingViewPart2: View {
             Button(action: {
                 createProfile()
             }, label: {
-                Text("Finished!!")
+                Text("Finished!")
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding()
@@ -88,8 +91,6 @@ struct OnboardingViewPart2: View {
                         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
                             self.presentationMode.wrappedValue.dismiss()
                         }
-                        
-                        
                     }else{
                         print("Error logging in!")
                         self.showError.toggle()

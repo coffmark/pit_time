@@ -52,7 +52,7 @@
     <resources>
         <image name="icon" width="565" height="539"/>
         <namedColor name="ColorBlue">
-            <color red="0.046999998390674591" green="0.25499999523162842" blue="0.60399997234344482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.035000000149011612" green="0.25499999523162842" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

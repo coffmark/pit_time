@@ -94,6 +94,9 @@ class AuthService {
         let document = REF_USERS.document()
         let userID = document.documentID
         
+        // Upload profile image to Storage
+        ImageManager.instance.uploadProfileImage(userID: userID, image: profileImage)
+        
         // Upload profile data to Firestore
         let userData: [String: Any] = [
             DatabaseUserField.displayName : name,
