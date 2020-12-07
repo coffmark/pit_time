@@ -1,3 +1,5 @@
 Pods/
-PitTime.xcworkspace/xcuserdata/
-PitTime.xcodeproj/project.pbxproj
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+.DS_Store
