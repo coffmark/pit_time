@@ -16,7 +16,7 @@ class DataService{
     private var REF_POSTS = DB_BASE.collection("posts")
     
     //MARK: UPLOAD FUNCTIONS
-    func uploadPost(pitTime: String, displayName: String, userID: String, handler: @escaping(_ success: Bool) -> ()){
+    func uploadPost(pittime: String, displayName: String, userID: String, handler: @escaping(_ success: Bool) -> ()){
         
         // Create new post document
         let document = REF_POSTS.document()
@@ -27,7 +27,7 @@ class DataService{
             DatabasePostField.postID : postID,
             DatabasePostField.userID : userID,
             DatabasePostField.displayName: displayName,
-            DatabasePostField.pitTime: pitTime,
+            DatabasePostField.pitTime: pittime,
             DatabasePostField.dateCreated: FieldValue.serverTimestamp(),
         ]
         
@@ -44,7 +44,6 @@ class DataService{
         }
         document.setData(postData)
     }
-    
     //MARK: DOWNLOAD FUNCTIONS
     func downloadPostsForFeed(handler: @escaping(_ posts: [PitModel]) -> ()){
         REF_POSTS.order(by: DatabasePostField.userID, descending: true).limit(to: 50).getDocuments { (querySnapshot, error) in

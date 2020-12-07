@@ -108,7 +108,7 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
                                 
                                 if self.isShareOthers{
                                     // Share Firestore
-                                    self.postCloudStore(pitTime: currentTime)
+                                    self.postFirebaseCloudStore(pitTime: currentTime)
                                 }else{
                                     print("Not Share Others🥺")
                                 }
@@ -149,13 +149,13 @@ class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate{
         session.invalidate()
     }
     
-    private func postCloudStore(pitTime: String) {
+    private func postFirebaseCloudStore(pitTime: String) {
         print("POST CLOUD STORE")
         guard let userID = currentUserID, let displayName = currentUserDisplayName else{
             print("Error getting userID or displayName")
             return
         }
-        DataService.instance.uploadPost(pitTime: pitTime, displayName: displayName, userID: userID) { (success) in
+        DataService.instance.uploadPost(pittime: pitTime, displayName: displayName, userID: userID) { (success) in
             if success{
                 print("Success Post!")
             }else{
