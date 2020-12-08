@@ -11,8 +11,6 @@ struct CardView: View {
     
     @State var pit: PitModel
     var image: UIImage = UIImage(named: "noimage")!
-    @State var isHeart: Bool = false
-    
     
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
@@ -36,9 +34,6 @@ struct CardView: View {
             }
             .padding(.all, 5)
             
-   
-                
-            
             VStack(alignment: .center, spacing: 5, content: {
                 // hour and minutes
                 Text("\(hour(content: pit.pitTime)):\(minutes(content: pit.pitTime))")
@@ -49,37 +44,14 @@ struct CardView: View {
                     .fill(Color.MyTheme.blueColor)
                     .frame(width: 80, height: 2, alignment: .center)
             })
-
-         
-            
-            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
-                Spacer()
-                
-                Button(action: {
-                    self.isHeart.toggle()
-                }, label: {
-                    Image(systemName: isHeart ? "heart.fill" : "heart")
-                        .font(.body)
-                        .foregroundColor(Color.MyTheme.blueColor)
-                })
-                
-                Button(action: {
-                    // go to share view ..🦋
-                }, label: {
-                    Image(systemName: "paperplane")
-                        .font(.body)
-                        .foregroundColor(Color.MyTheme.blueColor)
-                })
-            })
-            .padding(.all, 5)
-            .accentColor(.white)
+            .padding(.vertical, 20)
         })
         .background(Color.MyTheme.orangeColor)
         .border(Color.MyTheme.blueColor, width: 2)
-        .padding(.horizontal, 5)
+        .padding(.horizontal,  10)
     }
     
-    //MARK: FUNCTIONS®
+    //MARK: FUNCTIONS
     func year(content: String) -> String {
         let year: String =  DateUtils.stringFromOnlyYear(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return year
@@ -118,6 +90,6 @@ struct CardView_Previews: PreviewProvider {
     
     static var previews: some View {
         CardView(pit: pit)
-            .previewLayout(.sizeThatFits)
+//            .previewLayout(.sizeThatFits)
     }
 }
