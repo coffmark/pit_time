@@ -15,7 +15,7 @@
 
 **→共有機能が追加され、デザインを一新しました！**
 
-<img src="https://user-images.githubusercontent.com/52638834/101589558-03b38200-3a2c-11eb-9206-e2584edc7ef6.png" width="256px"/>
+<img src="https://user-images.githubusercontent.com/52638834/101616404-ac74d800-3a52-11eb-95b3-b58cd2d56655.png" width="768px"/>
 
 ## 詳細
 <img src="https://user-images.githubusercontent.com/52638834/101588959-da462680-3a2a-11eb-825a-03459ecd2060.png" width="256px"/>
