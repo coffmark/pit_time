@@ -16,30 +16,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ピッとタイム" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="0.0" y="469" width="414" height="43"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <color key="textColor" name="ColorBlue"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                <rect key="frame" x="0.0" y="465" width="414" height="47"/>
+                                <color key="tintColor" name="ColorBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="dDc-Vj-wTY"/>
+                                    <constraint firstAttribute="height" constant="47" id="tOM-au-hTo"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="ピッとタイム">
+                                        <attributes>
+                                            <color key="NSColor" name="ColorBlue"/>
+                                            <font key="NSFont" size="40" name="HiraginoSans-W5"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" name="ColorBlue"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-dF-M3c">
-                                <rect key="frame" x="57.5" y="205" width="299" height="241"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bZh-pe-wSt">
+                                <rect key="frame" x="87" y="281" width="262" height="162"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="241" id="QZb-fA-qUw"/>
-                                    <constraint firstAttribute="width" constant="299" id="Yc2-Rv-ooR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="BJ9-uH-6dK"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="262" id="bQ2-qN-7yv"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="162" id="f4e-xf-SVA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="162" id="guv-r6-pUB"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="bZh-pe-wSt" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="87" id="0ue-0a-lbQ"/>
+                            <constraint firstItem="bZh-pe-wSt" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="237" id="Jee-ys-FXw"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="GJd-Yh-RWb" secondAttribute="bottom" constant="350" id="PBJ-vT-KG6"/>
                             <constraint firstAttribute="trailing" secondItem="GJd-Yh-RWb" secondAttribute="trailing" id="ZSi-b2-2xb"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="Npq-dF-M3c" secondAttribute="bottom" constant="23" id="Zzd-ZK-2VH"/>
-                            <constraint firstItem="Npq-dF-M3c" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="161" id="cQT-uE-Ll6"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="Npq-dF-M3c" secondAttribute="centerX" id="dW2-EN-9cs"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fNj-ki-mLc"/>
                         </constraints>
                     </view>
@@ -50,7 +62,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="565" height="539"/>
+        <image name="logo" width="565" height="539"/>
         <namedColor name="ColorBlue">
             <color red="0.035000000149011612" green="0.25499999523162842" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
