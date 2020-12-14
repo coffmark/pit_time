@@ -11,11 +11,15 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
+    @AppStorage(CurrentUserDefaults.isFirstVisit) var isCurrentUserFirstVisit: Bool?
     
     @State var feedPosts = PitArrayObject(shuffled: false)
+    // Full Screen Cover
+    @State var isShowTutorialView: Bool = false
     
     var body: some View {
         TabView{
+            //MARK: HOME VIEW
             NavigationView{
                 HomeView(pits: feedPosts)
             }
@@ -24,6 +28,7 @@ struct ContentView: View {
                 Text("Home")
             }
             
+            //MARK: UPLOAD VIEW
             NavigationView{
                 UploadView()
                     .onDisappear(perform: {
@@ -34,6 +39,8 @@ struct ContentView: View {
                 Image(systemName: "square.and.arrow.up.fill")
                 Text("Upload")
             }
+            
+            //MARK: PROFILE VIEW
             ZStack{
                 if let userID = currentUserID, let displayName = currentUserDisplayName{
                     NavigationView{
@@ -47,9 +54,26 @@ struct ContentView: View {
                 Image(systemName: "person.fill")
                 Text("Profile")
             }
-            
         }
         .accentColor(colorScheme == .light ? .black : Color.MyTheme.orangeColor)
+        .onAppear(perform: {
+            firstVisitSetup()
+        })
+        .fullScreenCover(isPresented: $isShowTutorialView, content: {
+            TutorialHomeView()
+        })
+    }
+    
+    //MARK: FUNCTIONS
+    func firstVisitSetup(){
+        let visit = UserDefaults.standard.bool(forKey: CurrentUserDefaults.isFirstVisit)
+        if visit{
+            print("Access More Than Once")
+        }else{
+            print("First Access")
+            self.isShowTutorialView.toggle()
+            UserDefaults.standard.set(true, forKey: CurrentUserDefaults.isFirstVisit)
+        }
     }
 }
 
