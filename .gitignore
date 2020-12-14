@@ -3,3 +3,5 @@
 !*.xcworkspace/contents.xcworkspacedata
 .DS_Store
 PitTime.xcworkspace/xcuserdata/
+PitTime.xcodeproj/project.pbxproj
+PitTime.xcworkspace/xcuserdata/kamimura.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
