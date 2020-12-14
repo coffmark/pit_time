@@ -12,6 +12,7 @@ import GoogleSignIn
 
 @main
 struct PitTimeApp: App {
+    
     init() {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
