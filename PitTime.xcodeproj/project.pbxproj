@@ -38,6 +38,7 @@
 		9274F837256E2FEB0091D593 /* SignInWithGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */; };
 		9274F83C256F347D0091D593 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F83B256F347D0091D593 /* SettingsView.swift */; };
 		9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F843256F34E90091D593 /* ProfileHeaderView.swift */; };
+		928138A12586F8D5007F0DC9 /* TutorialHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */; };
 		92895C102574847D00330927 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92895C0F2574847C00330927 /* SettingsLabelView.swift */; };
 		9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
@@ -97,6 +98,7 @@
 		9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInWithGoogle.swift; path = Views/SignInWithGoogle.swift; sourceTree = "<group>"; };
 		9274F83B256F347D0091D593 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9274F843256F34E90091D593 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHomeView.swift; sourceTree = "<group>"; };
 		92895C0F2574847C00330927 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 				92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */,
 				92C55A5D256B77FF0091C1C4 /* ContentView.swift */,
 				9234A0E6256B7E1000F8D835 /* HomeView */,
+				9281389F2586F8B0007F0DC9 /* TutorialView */,
 				9234A0E7256B7E3600F8D835 /* UploadView */,
 				9234A0E8256B7E3C00F8D835 /* ProfileView */,
 			);
@@ -256,6 +259,14 @@
 				92226CE62578A827003213CD /* SignInAnonymous.swift */,
 			);
 			name = SignInProviders;
+			sourceTree = "<group>";
+		};
+		9281389F2586F8B0007F0DC9 /* TutorialView */ = {
+			isa = PBXGroup;
+			children = (
+				928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */,
+			);
+			name = TutorialView;
 			sourceTree = "<group>";
 		};
 		929CC6C1256CBB3300AC85DC /* Services */ = {
@@ -651,6 +662,7 @@
 				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,
 				9234A0FF256B840900F8D835 /* PitModel.swift in Sources */,
 				9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */,
+				928138A12586F8D5007F0DC9 /* TutorialHomeView.swift in Sources */,
 				9234A0F7256B83EB00F8D835 /* PitArrayObject.swift in Sources */,
 				9234A0E2256B7CE000F8D835 /* SignUpView.swift in Sources */,
 				9274F827256E287D0091D593 /* OnboardingViewPart2.swift in Sources */,
