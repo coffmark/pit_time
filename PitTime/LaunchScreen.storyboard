@@ -66,5 +66,8 @@
         <namedColor name="ColorBlue">
             <color red="0.035000000149011612" green="0.25499999523162842" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="ColorBlue">
+            <color red="0.035000000149011612" green="0.25499999523162842" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
