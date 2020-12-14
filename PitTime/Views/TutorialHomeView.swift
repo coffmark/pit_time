@@ -55,7 +55,7 @@ struct TutorialHomeView: View {
             .navigationBarItems(trailing: Button(action: {
                 presentaionMode.wrappedValue.dismiss()
             }, label: {
-                Text("Skip")
+                Text("Skip".uppercased())
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundColor(Color.MyTheme.blueColor)
