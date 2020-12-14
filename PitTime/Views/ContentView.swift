@@ -68,12 +68,9 @@ struct ContentView: View {
     func firstVisitSetup(){
         let visit = UserDefaults.standard.bool(forKey: CurrentUserDefaults.isFirstVisit)
         if visit{
-            print("2回目以降")
-            
-            //MARK:  This is temporary false
-            UserDefaults.standard.set(false, forKey: CurrentUserDefaults.isFirstVisit)
+            print("Access More Than Once")
         }else{
-            print("初回アクセス")
+            print("First Access")
             self.isShowTutorialView.toggle()
             UserDefaults.standard.set(true, forKey: CurrentUserDefaults.isFirstVisit)
         }
