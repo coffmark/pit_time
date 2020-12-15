@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct UploadView: View {
-    
+
     var sessionWrite = NFCSessionWrite()
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
-    
+
     var body: some View {
-        ZStack{
+        ZStack {
             Color.MyTheme.blueColor
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack(alignment: .center, spacing: 40, content: {
                 Button(action: {
                     self.sessionWrite.beginScanning(isShareOthers: false)

@@ -34,14 +34,14 @@ import UIKit
  */
 @available(tvOS, unavailable)
 public extension FBLoginButton {
-  /**
-   Create a new `LoginButton` with a given optional frame and read permissions.
+    /**
+     Create a new `LoginButton` with a given optional frame and read permissions.
 
-   - Parameter frame: Optional frame to initialize with. Default: `nil`, which uses a default size for the button.
-   - Parameter permissions: Array of read permissions to request when logging in.
-   */
-  convenience init(frame: CGRect = .zero, permissions: [Permission] = [.publicProfile]) {
+     - Parameter frame: Optional frame to initialize with. Default: `nil`, which uses a default size for the button.
+     - Parameter permissions: Array of read permissions to request when logging in.
+     */
+    convenience init(frame: CGRect = .zero, permissions: [Permission] = [.publicProfile]) {
         self.init(frame: frame)
         self.permissions = permissions.map { $0.name }
-  }
+    }
 }

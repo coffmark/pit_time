@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var profileUserID: String
     @State var profileDisplayName: String
     var isMyProfile: Bool
-    
+
     @State var showSettings: Bool = false
     @State var showChangeImage: Bool = false
-    @State var profileImage: UIImage = UIImage(named: "noimage")!
-    
+    @State var profileImage = UIImage(named: "noimage")!
+
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            ScrollView(.vertical,showsIndicators: false, content: {
+            ScrollView(.vertical, showsIndicators: false, content: {
                 ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
             })
@@ -42,7 +42,7 @@ struct ProfileView: View {
                 })
                 .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
                 .opacity(isMyProfile ? 1.0 : 0.0)
-            )
+        )
     }
 }
 

@@ -33,17 +33,17 @@ private protocol CodableDocumentReference: Codable {}
  * encoder/decoder however. It is only meant to be encoded by Firestore.Encoder/Firestore.Decoder.
  */
 extension CodableDocumentReference {
-  public init(from decoder: Decoder) throws {
-    throw FirestoreDecodingError.decodingIsNotSupported(
-      "DocumentReference values can only be decoded with Firestore.Decoder"
-    )
-  }
+    public init(from decoder: Decoder) throws {
+        throw FirestoreDecodingError.decodingIsNotSupported(
+            "DocumentReference values can only be decoded with Firestore.Decoder"
+        )
+    }
 
-  public func encode(to encoder: Encoder) throws {
-    throw FirestoreEncodingError.encodingIsNotSupported(
-      "DocumentReference values can only be encoded with Firestore.Encoder"
-    )
-  }
+    public func encode(to encoder: Encoder) throws {
+        throw FirestoreEncodingError.encodingIsNotSupported(
+            "DocumentReference values can only be encoded with Firestore.Encoder"
+        )
+    }
 }
 
 extension DocumentReference: CodableDocumentReference {}

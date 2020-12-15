@@ -10,9 +10,9 @@ import SwiftUI
 struct SettingsLabelView: View {
     var title: String
     var imageName: String
-    
+
     var body: some View {
-        HStack{
+        HStack {
             Text(title)
             Spacer()
             Image(systemName: imageName)

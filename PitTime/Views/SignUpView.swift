@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct SignUpView: View {
-    
+
     @State var showOnboarding: Bool = false
-    
+
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
+        VStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
             Spacer()
-            
+
             Text("まだサインインしておりません！🥺")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .foregroundColor(.white)
-            
+
             Button(action: {
                 self.showOnboarding.toggle()
             }, label: {
@@ -35,9 +35,9 @@ struct SignUpView: View {
                     .background(Color.MyTheme.orangeColor)
                     .cornerRadius(12)
                     .shadow(radius: 12)
-                
+
             })
-            
+
             Button(action: {
                 self.showOnboarding.toggle()
             }, label: {

@@ -18,24 +18,24 @@ import Foundation
 import FirebaseFirestore
 
 extension DocumentSnapshot {
-  /// Retrieves all fields in a document and converts them to an instance of
-  /// caller-specified type. Returns `nil` if the document does not exist.
-  ///
-  /// See `Firestore.Decoder` for more details about the decoding process.
-  ///
-  /// - Parameters
-  ///   - type: The type to convert the document fields to.
-  ///   - decoder: The decoder to use to convert the document. `nil` to use
-  ///              default decoder.
-  public func data<T: Decodable>(as type: T.Type,
-                                 decoder: Firestore.Decoder? = nil) throws -> T? {
-    var d = decoder
-    if d == nil {
-      d = Firestore.Decoder()
+    /// Retrieves all fields in a document and converts them to an instance of
+    /// caller-specified type. Returns `nil` if the document does not exist.
+    ///
+    /// See `Firestore.Decoder` for more details about the decoding process.
+    ///
+    /// - Parameters
+    ///   - type: The type to convert the document fields to.
+    ///   - decoder: The decoder to use to convert the document. `nil` to use
+    ///              default decoder.
+    public func data<T: Decodable>(as type: T.Type,
+                                   decoder: Firestore.Decoder? = nil) throws -> T? {
+        var d = decoder
+        if d == nil {
+            d = Firestore.Decoder()
+        }
+        if let data = data() {
+            return try d?.decode(T.self, from: data, in: reference)
+        }
+        return nil
     }
-    if let data = data() {
-      return try d?.decode(T.self, from: data, in: reference)
-    }
-    return nil
-  }
 }

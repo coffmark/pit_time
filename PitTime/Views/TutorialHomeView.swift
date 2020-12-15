@@ -11,14 +11,14 @@ struct TutorialHomeView: View {
     @Environment(\.presentationMode) var presentaionMode
     @AppStorage(CurrentUserDefaults.isFirstVisit) var isCurrentUserFirstVisit: Bool?
     @State var selection: Int = 0
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack(alignment: .center, spacing: 0, content: {
                 Spacer()
                 // Slide Tutorial Show
                 TabView(selection: $selection,
-                        content:  {
+                        content: {
                             Image("tutorial1")
                                 .resizable()
                                 .scaledToFit()

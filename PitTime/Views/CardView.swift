@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
-    
+
     @State var pit: PitModel
-    var image: UIImage = UIImage(named: "noimage")!
-    
+    @State var image = UIImage(named: "noimage")!
+
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
-            HStack{
+        VStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
+            HStack {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
@@ -25,7 +25,7 @@ struct CardView: View {
                     .fontWeight(.medium)
                     .foregroundColor(Color.MyTheme.blueColor)
                 Spacer(minLength: 0)
-                
+
                 // year and month and day
                 Text("\(year(content: pit.pitTime))-\(month(content: pit.pitTime))-\(day(content: pit.pitTime))")
                     .font(.headline)
@@ -33,7 +33,7 @@ struct CardView: View {
                     .foregroundColor(Color.MyTheme.blueColor)
             }
             .padding(.all, 5)
-            
+
             VStack(alignment: .center, spacing: 5, content: {
                 // hour and minutes
                 Text("\(hour(content: pit.pitTime)):\(minutes(content: pit.pitTime))")
@@ -48,48 +48,58 @@ struct CardView: View {
         })
         .background(Color.MyTheme.orangeColor)
         .border(Color.MyTheme.blueColor, width: 2)
-        .padding(.horizontal,  10)
+        .padding(.horizontal, 10)
+        .onAppear(perform: {
+            fetchProfileImage(userID: pit.userID)
+        })
     }
-    
-    //MARK: FUNCTIONS
+
+    // MARK: FUNCTIONS
     func year(content: String) -> String {
-        let year: String =  DateUtils.stringFromOnlyYear(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
+        let year: String = DateUtils.stringFromOnlyYear(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return year
     }
-    
+
     func month(content: String) -> String {
-        let month: String =  DateUtils.stringFromDateOnlyMonth(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
+        let month: String = DateUtils.stringFromDateOnlyMonth(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return month
     }
-    
+
     func day(content: String) -> String {
-        let day: String =  DateUtils.stringFromDateOnlyDay(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
+        let day: String = DateUtils.stringFromDateOnlyDay(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return day
     }
-    
-    func hour(content: String) -> String{
+
+    func hour(content: String) -> String {
         let hour: String = DateUtils.stringFromDateOnlyHour(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return hour
     }
-    
-    func minutes(content: String) -> String{
-        let minutes: String =  DateUtils.stringFromDateOnlyMinutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
+
+    func minutes(content: String) -> String {
+        let minutes: String = DateUtils.stringFromDateOnlyMinutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return minutes
     }
-    
-    func intHour(content: String) -> Int{
+
+    func intHour(content: String) -> Int {
         let intHour: Int = DateUtils.HourFromTotalMunutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return intHour
     }
+    
+    func fetchProfileImage(userID: String) {
+        ImageManager.instance.downloadProfileImage(userID: userID) { (retuendImage) in
+            if let uiImage = retuendImage{
+                self.image = uiImage
+            }
+        }
+    }
 }
 
-
 struct CardView_Previews: PreviewProvider {
-    
-    static var pit: PitModel = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitTime: "2020-11-30 22:56:49 +0000")
-    
+
+    static var pit = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitTime: "2020-11-30 22:56:49 +0000")
+
     static var previews: some View {
         CardView(pit: pit)
-//            .previewLayout(.sizeThatFits)
+        //            .previewLayout(.sizeThatFits)
     }
 }
