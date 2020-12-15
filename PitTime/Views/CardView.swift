@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
 
     @State var pit: PitModel
-    var image = UIImage(named: "noimage")!
+    @State var image = UIImage(named: "noimage")!
 
     var body: some View {
         VStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
@@ -49,6 +49,9 @@ struct CardView: View {
         .background(Color.MyTheme.orangeColor)
         .border(Color.MyTheme.blueColor, width: 2)
         .padding(.horizontal, 10)
+        .onAppear(perform: {
+            fetchProfileImage(userID: pit.userID)
+        })
     }
 
     // MARK: FUNCTIONS
@@ -80,6 +83,14 @@ struct CardView: View {
     func intHour(content: String) -> Int {
         let intHour: Int = DateUtils.HourFromTotalMunutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
         return intHour
+    }
+    
+    func fetchProfileImage(userID: String) {
+        ImageManager.instance.downloadProfileImage(userID: userID) { (retuendImage) in
+            if let uiImage = retuendImage{
+                self.image = uiImage
+            }
+        }
     }
 }
 
