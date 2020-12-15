@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+
     @ObservedObject var pits: PitArrayObject
-    
-    
+
     var body: some View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-            LazyVStack{
+            LazyVStack {
                 ForEach(pits.pitArray, id: \.self, content: { pit in
                     CardView(pit: pit)
                         .padding(.vertical, 10)

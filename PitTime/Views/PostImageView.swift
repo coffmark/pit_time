@@ -10,18 +10,18 @@ import SwiftUI
 struct PostImageView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
-    
+
     @Binding var headerImage: UIImage
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
-    
+
     // Alert
     @State var showAlert: Bool = false
     @State var postUploadSuccessfully: Bool = false
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            HStack{
+            HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
@@ -33,12 +33,12 @@ struct PostImageView: View {
                 Spacer()
             }
         }
-        
+
         ScrollView(.vertical, showsIndicators: false) {
             Image(uiImage: headerImage)
                 .resizable()
                 .scaledToFill()
-            
+
             Button(action: {
                 postPicture(profileImage: headerImage )
             }, label: {
@@ -53,31 +53,31 @@ struct PostImageView: View {
             getAlert()
         }
     }
-    
-    func postPicture(profileImage: UIImage){
+
+    func postPicture(profileImage: UIImage) {
         print("POST PICTURE TO CAPTION HERE")
-        guard let userID = currentUserID else{
+        guard let userID = currentUserID else {
             print("Error getting userID or displayName while posting image")
             return
         }
         ImageManager.instance.uploadProfileImage(userID: userID, image: profileImage)
-        
+
     }
-    
+
     func getAlert() -> Alert {
-        if postUploadSuccessfully{
+        if postUploadSuccessfully {
             return Alert(title: Text("Successfully Upload Post!"), message: nil, dismissButton: .default(Text("OK"), action: {
                 self.presentationMode.wrappedValue.dismiss()
             }))
-        }else{
+        } else {
             return Alert(title: Text("Error Uploading Post"))
         }
     }
 }
 
 struct PostImageView_Previews: PreviewProvider {
-    @State static var image: UIImage = UIImage(named: "noimage")!
-    
+    @State static var image = UIImage(named: "noimage")!
+
     static var previews: some View {
         PostImageView(headerImage: $image)
     }

@@ -12,45 +12,45 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     @AppStorage(CurrentUserDefaults.isFirstVisit) var isCurrentUserFirstVisit: Bool?
-    
+
     @State var feedPosts = PitArrayObject(shuffled: false)
     // Full Screen Cover
     @State var isShowTutorialView: Bool = false
-    
+
     var body: some View {
-        TabView{
-            //MARK: HOME VIEW
-            NavigationView{
+        TabView {
+            // MARK: HOME VIEW
+            NavigationView {
                 HomeView(pits: feedPosts)
             }
-            .tabItem{
+            .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
-            
-            //MARK: UPLOAD VIEW
-            NavigationView{
+
+            // MARK: UPLOAD VIEW
+            NavigationView {
                 UploadView()
                     .onDisappear(perform: {
                         self.feedPosts = PitArrayObject(shuffled: false)
                     })
             }
-            .tabItem{
+            .tabItem {
                 Image(systemName: "square.and.arrow.up.fill")
                 Text("Upload")
             }
-            
-            //MARK: PROFILE VIEW
-            ZStack{
-                if let userID = currentUserID, let displayName = currentUserDisplayName{
-                    NavigationView{
+
+            // MARK: PROFILE VIEW
+            ZStack {
+                if let userID = currentUserID, let displayName = currentUserDisplayName {
+                    NavigationView {
                         ProfileView(profileUserID: userID, profileDisplayName: displayName, isMyProfile: true)
                     }
-                }else{
+                } else {
                     SignUpView()
                 }
             }
-            .tabItem{
+            .tabItem {
                 Image(systemName: "person.fill")
                 Text("Profile")
             }
@@ -63,13 +63,14 @@ struct ContentView: View {
             TutorialHomeView()
         })
     }
-    
-    //MARK: FUNCTIONS
-    func firstVisitSetup(){
+
+    // MARK: FUNCTIONS
+    func firstVisitSetup() {
         let visit = UserDefaults.standard.bool(forKey: CurrentUserDefaults.isFirstVisit)
-        if visit{
+        if visit {
             print("Access More Than Once")
-        }else{
+            UserDefaults.standard.set(false, forKey: CurrentUserDefaults.isFirstVisit)
+        } else {
             print("First Access")
             self.isShowTutorialView.toggle()
             UserDefaults.standard.set(true, forKey: CurrentUserDefaults.isFirstVisit)

@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable{
-    
+struct ImagePicker: UIViewControllerRepresentable {
+
     @Environment(\.presentationMode) var presentaionMode
     @Binding var imageSelected: UIImage
     let sourceType: UIImagePickerController.SourceType
-    
+
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
@@ -21,23 +21,23 @@ struct ImagePicker: UIViewControllerRepresentable{
         picker.allowsEditing = true
         return picker
     }
-    
+
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePicker>) {
-        
+
     }
-    
+
     func makeCoordinator() -> ImagePickerCoordinator {
-        return ImagePickerCoordinator(parent: self)
+        ImagePickerCoordinator(parent: self)
     }
-    
-    class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
-        
+
+    class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
         let parent: ImagePicker
-        init(parent: ImagePicker){
+        init(parent: ImagePicker) {
             self.parent = parent
         }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage {
                 // select the image for our app
                 parent.imageSelected = image

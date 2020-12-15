@@ -17,12 +17,12 @@
 import FirebaseFirestore
 
 #if compiler(>=5.1)
-  /// A type that can initialize itself from a Firestore Timestamp, which makes
-  /// it suitable for use with the `@ServerTimestamp` property wrapper.
-  ///
-  /// Firestore includes extensions that make `Timestamp` and `Date` conform to
-  /// `ServerTimestampWrappable`.
-  public protocol ServerTimestampWrappable {
+/// A type that can initialize itself from a Firestore Timestamp, which makes
+/// it suitable for use with the `@ServerTimestamp` property wrapper.
+///
+/// Firestore includes extensions that make `Timestamp` and `Date` conform to
+/// `ServerTimestampWrappable`.
+public protocol ServerTimestampWrappable {
     /// Creates a new instance by converting from the given `Timestamp`.
     ///
     /// - Parameter timestamp: The timestamp from which to convert.
@@ -32,80 +32,80 @@ import FirebaseFirestore
     ///
     /// - Returns: A `Timestamp` representation of this value.
     static func unwrap(_ value: Self) throws -> Timestamp
-  }
+}
 
-  extension Date: ServerTimestampWrappable {
+extension Date: ServerTimestampWrappable {
     public static func wrap(_ timestamp: Timestamp) throws -> Self {
-      return timestamp.dateValue()
+        return timestamp.dateValue()
     }
 
     public static func unwrap(_ value: Self) throws -> Timestamp {
-      return Timestamp(date: value)
+        return Timestamp(date: value)
     }
-  }
+}
 
-  extension Timestamp: ServerTimestampWrappable {
+extension Timestamp: ServerTimestampWrappable {
     public static func wrap(_ timestamp: Timestamp) throws -> Self {
-      return timestamp as! Self
+        return timestamp as! Self
     }
 
     public static func unwrap(_ value: Timestamp) throws -> Timestamp {
-      return value
+        return value
     }
-  }
+}
 
-  /// A property wrapper that marks an `Optional<Timestamp>` field to be
-  /// populated with a server timestamp. If a `Codable` object being written
-  /// contains a `nil` for an `@ServerTimestamp`-annotated field, it will be
-  /// replaced with `FieldValue.serverTimestamp()` as it is sent.
-  ///
-  /// Example:
-  /// ```
-  /// struct CustomModel {
-  ///   @ServerTimestamp var ts: Timestamp?
-  /// }
-  /// ```
-  ///
-  /// Then writing `CustomModel(ts: nil)` will tell server to fill `ts` with
-  /// current timestamp.
-  @propertyWrapper
-  public struct ServerTimestamp<Value>: Codable
-    where Value: ServerTimestampWrappable & Codable {
+/// A property wrapper that marks an `Optional<Timestamp>` field to be
+/// populated with a server timestamp. If a `Codable` object being written
+/// contains a `nil` for an `@ServerTimestamp`-annotated field, it will be
+/// replaced with `FieldValue.serverTimestamp()` as it is sent.
+///
+/// Example:
+/// ```
+/// struct CustomModel {
+///   @ServerTimestamp var ts: Timestamp?
+/// }
+/// ```
+///
+/// Then writing `CustomModel(ts: nil)` will tell server to fill `ts` with
+/// current timestamp.
+@propertyWrapper
+public struct ServerTimestamp<Value>: Codable
+where Value: ServerTimestampWrappable & Codable {
     var value: Value?
 
     public init(wrappedValue value: Value?) {
-      self.value = value
+        self.value = value
     }
 
     public var wrappedValue: Value? {
-      get { value }
-      set { value = newValue }
+        get { value }
+        set { value = newValue }
     }
 
     // MARK: Codable
 
     public init(from decoder: Decoder) throws {
-      let container = try decoder.singleValueContainer()
-      if container.decodeNil() {
-        value = nil
-      } else {
-        value = try Value.wrap(try container.decode(Timestamp.self))
-      }
+        let container = try decoder.singleValueContainer()
+        if container.decodeNil() {
+            value = nil
+        } else {
+            value = try Value.wrap(try container.decode(Timestamp.self))
+        }
     }
 
     public func encode(to encoder: Encoder) throws {
-      var container = encoder.singleValueContainer()
-      if let value = value {
-        try container.encode(Value.unwrap(value))
-      } else {
-        try container.encode(FieldValue.serverTimestamp())
-      }
+        var container = encoder.singleValueContainer()
+        if let value = value {
+            try container.encode(Value.unwrap(value))
+        } else {
+            try container.encode(FieldValue.serverTimestamp())
+        }
     }
-  }
+}
 
-  extension ServerTimestamp: Equatable where Value: Equatable {}
+extension ServerTimestamp: Equatable where Value: Equatable {}
 
-  extension ServerTimestamp: Hashable where Value: Hashable {}
+extension ServerTimestamp: Hashable where Value: Hashable {}
 #endif // compiler(>=5.1)
 
 /// A compatibility version of `ServerTimestamp` that does not use property
@@ -127,48 +127,48 @@ import FirebaseFirestore
 /// timestamp.
 @available(swift, deprecated: 5.1)
 public enum Swift4ServerTimestamp: Codable, Equatable {
-  /// When being read (decoded) from Firestore, NSNull values will be mapped to
-  /// `pending`. When being written (encoded) to Firestore, `pending` means
-  /// requesting server to set timestamp on the field (essentially setting value
-  /// to FieldValue.serverTimestamp()).
-  case pending
+    /// When being read (decoded) from Firestore, NSNull values will be mapped to
+    /// `pending`. When being written (encoded) to Firestore, `pending` means
+    /// requesting server to set timestamp on the field (essentially setting value
+    /// to FieldValue.serverTimestamp()).
+    case pending
 
-  /// When being read (decoded) from Firestore, non-nil Timestamp will be mapped
-  /// to `resolved`. When being written (encoded) to Firestore,
-  /// `resolved(stamp)` will set the field value to `stamp`.
-  case resolved(Timestamp)
+    /// When being read (decoded) from Firestore, non-nil Timestamp will be mapped
+    /// to `resolved`. When being written (encoded) to Firestore,
+    /// `resolved(stamp)` will set the field value to `stamp`.
+    case resolved(Timestamp)
 
-  /// Returns this value as an `Optional<Timestamp>`.
-  ///
-  /// If the server timestamp is still pending, the returned optional will be
-  /// `.none`. Once resolved, the returned optional will be `.some` with the
-  /// resolved timestamp.
-  public var timestamp: Timestamp? {
-    switch self {
-    case .pending:
-      return .none
-    case let .resolved(timestamp):
-      return .some(timestamp)
+    /// Returns this value as an `Optional<Timestamp>`.
+    ///
+    /// If the server timestamp is still pending, the returned optional will be
+    /// `.none`. Once resolved, the returned optional will be `.some` with the
+    /// resolved timestamp.
+    public var timestamp: Timestamp? {
+        switch self {
+        case .pending:
+            return .none
+        case let .resolved(timestamp):
+            return .some(timestamp)
+        }
     }
-  }
 
-  public init(from decoder: Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    if container.decodeNil() {
-      self = .pending
-    } else {
-      let value = try container.decode(Timestamp.self)
-      self = .resolved(value)
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if container.decodeNil() {
+            self = .pending
+        } else {
+            let value = try container.decode(Timestamp.self)
+            self = .resolved(value)
+        }
     }
-  }
 
-  public func encode(to encoder: Encoder) throws {
-    var container = encoder.singleValueContainer()
-    switch self {
-    case .pending:
-      try container.encode(FieldValue.serverTimestamp())
-    case let .resolved(value: value):
-      try container.encode(value)
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .pending:
+            try container.encode(FieldValue.serverTimestamp())
+        case let .resolved(value: value):
+            try container.encode(value)
+        }
     }
-  }
 }

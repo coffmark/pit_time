@@ -10,22 +10,22 @@ import SwiftUI
 struct OnboardingViewPart2: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
-    
+
     @Binding var displayName: String
     @Binding var email: String
     @Binding var providerID: String
     @Binding var provider: String
     let sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
-    @State var imageSelected: UIImage = UIImage(named: "noimage")!
-    
+
+    @State var imageSelected = UIImage(named: "noimage")!
+
     @State var showImagePicker: Bool = false
-    
+
     let initialAnonymousName: String = "匿名"
-    
+
     // Alert
     @State var showError: Bool = false
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
             Text("What's your name?")
@@ -42,7 +42,7 @@ struct OnboardingViewPart2: View {
                 .font(.headline)
                 .autocapitalization(.sentences)
                 .padding(.horizontal)
-            
+
             Button(action: {
                 createProfile()
             }, label: {
@@ -59,60 +59,59 @@ struct OnboardingViewPart2: View {
             .accentColor(Color.MyTheme.blueColor)
             .opacity(displayName.isEmpty ? 0.0 : 1.0)
             .animation(.easeOut(duration:1.0))
-            
+
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.MyTheme.beigeColor)
         .edgesIgnoringSafeArea(.all)
-        .alert(isPresented: $showError){() -> Alert in
-            return Alert(title: Text("Error creating profile 😤"))
+        .alert(isPresented: $showError) {() -> Alert in
+            Alert(title: Text("Error creating profile 😤"))
         }
-        
+
         // Hide Anonymous Name
         .onAppear(perform: {
-            if displayName == initialAnonymousName{
+            if displayName == initialAnonymousName {
                 displayName = ""
-            }else{
+            } else {
                 return
             }
         })
     }
-    
-    //MARK: FUNCTIONS
-    func createProfile(){
+
+    // MARK: FUNCTIONS
+    func createProfile() {
         print("CREATE PROFILE NOW")
-        
-        AuthService.instance.createNewUserInDatabase(name: displayName, email: email, providerID: providerID, provider: provider, profileImage: imageSelected){ (returnUserID) in
-            
+
+        AuthService.instance.createNewUserInDatabase(name: displayName, email: email, providerID: providerID, provider: provider, profileImage: imageSelected) { returnUserID in
+
             if let userID = returnUserID {
                 // SUCCESS
                 print("Successfully created new user in database.")
-                AuthService.instance.logInUserToApp(userID: userID) { (success) in
+                AuthService.instance.logInUserToApp(userID: userID) { success in
                     if success {
                         print("User logged in!")
                         // return to app
-                        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.presentationMode.wrappedValue.dismiss()
                         }
-                    }else{
+                    } else {
                         print("Error logging in!")
                         self.showError.toggle()
                     }
                 }
-            }else {
+            } else {
                 // ERROR
                 print("Error creating user in Database")
                 self.showError.toggle()
             }
         }
     }
-    
+
 }
 
 struct OnboardingViewPart2_Previews: PreviewProvider {
     @State static var testString: String = "Test"
-    
-    
+
     static var previews: some View {
         OnboardingViewPart2(displayName: $testString, email: $testString, providerID: $testString, provider: $testString)
     }

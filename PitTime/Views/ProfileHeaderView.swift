@@ -10,15 +10,12 @@ import SwiftUI
 struct ProfileHeaderView: View {
     @Environment(\.presentationMode) var presentationMode
     let sourceType: UIImagePickerController.SourceType = .photoLibrary
-        
+
     @Binding var profileImage: UIImage
     @Binding var profileDisplayName: String
-    
+
     @State var showProfileImage: Bool = false
-    
-    
-    
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
             Button(action: {
@@ -43,10 +40,10 @@ struct ProfileHeaderView: View {
 }
 
 struct ProfileHeaderView_Previews: PreviewProvider {
-    
-    @State static var uiImage: UIImage = UIImage(named: "noimage")!
+
+    @State static var uiImage = UIImage(named: "noimage")!
     @State static var profileDisplayPreviewName: String = "Ryosuke"
-    
+
     static var previews: some View {
         ProfileHeaderView(profileImage: $uiImage, profileDisplayName: $profileDisplayPreviewName)
             .previewLayout(.sizeThatFits)
