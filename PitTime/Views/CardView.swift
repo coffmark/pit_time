@@ -15,17 +15,18 @@ struct CardView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0, content: {
             HStack {
+                // Display Profile Image
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30, alignment: .center)
                     .cornerRadius(15)
+                // Display Profile UserName
                 Text(pit.username)
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundColor(Color.MyTheme.blueColor)
                 Spacer(minLength: 0)
-
                 // Display Year/Month/Day
                 Text(DateHelper.instance.extractDate(dateString: pit.pitBeginTime))
                     .font(.headline)
@@ -33,19 +34,20 @@ struct CardView: View {
                     .foregroundColor(Color.MyTheme.blueColor)
             }
             .padding(.all, 5)
-            
             // Display Time
             if let endTime = pit.pitEndTime {
-                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime)
+                // In BeginTime And EndTime
+                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime, postID: pit.postID)
                 
             }else{
+                // Only BeginTime
                 CardDefaultContentView(beginTime: pit.pitBeginTime)
             }
-            
         })
         .background(Color.MyTheme.orangeColor)
-        .border(Color.MyTheme.blueColor, width: 2)
-        .padding(.horizontal, 10)
+        .border(Color.MyTheme.orangeColor, width: 2)
+        .padding(.horizontal, 15)
+        .shadow(color: Color.MyTheme.orangeColor, radius: 5)
         .onAppear(perform: {
             fetchProfileImage(userID: pit.userID)
         })

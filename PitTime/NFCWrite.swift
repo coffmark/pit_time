@@ -17,15 +17,17 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
     // MARK: PROPERTIES
     var session: NFCNDEFReaderSession?
     var isShareOthers: Bool = false
+    var isEndTime: Bool = false
 
     // MARK: PUBLIC FUNCTIONS
-    public func  beginScanning(isShareOthers: Bool) {
+    public func  beginScanning(isShareOthers: Bool, isEndTime: Bool) {
         guard NFCNDEFReaderSession.readingAvailable else {
             print("スキャンに対応されていない機種です。申し訳ございません。")
             return
         }
         session = NFCNDEFReaderSession(delegate: self, queue: .main, invalidateAfterFirstRead: false)
         self.isShareOthers = isShareOthers
+        self.isEndTime = isEndTime
         session?.alertMessage = "データを書き込むのでNFCタグに近づけてください"
         session?.begin()
         return
@@ -80,7 +82,7 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
                         print("Read Write")
                         let payLoad: NFCNDEFPayload?
 
-                        // MARK: - Date を読み取り書き込む
+                        // Write Current Time
                         let currentTime = self.getCurrentTime()
 
                         payLoad = NFCNDEFPayload(
@@ -103,13 +105,24 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
                                 session.alertMessage = "成功しました！🤩"
                                 print("SUCCESS WRITE!!")
 
+                                
+                                
+                                //MARK: TODO: MAKE FUNCTION
                                 if self.isShareOthers {
-                                    // Share Firestore
-                                    self.postFirebaseCloudStore(pitTime: currentTime)
+                                    if self.isEndTime {
+                                        // EndTime in PitModel
+                                        print("\(currentTime) THIS IS END TIME")
+                                        
+                                        
+                                    }else{
+                                        // Share Firestore
+                                        NFCWriteService.instance.postCloudStoreOnlyBeginTime(beginTime: currentTime)
+                                    }
                                 } else {
                                     print("Not Share Others🥺")
                                 }
-
+                                
+                                
                             }
                             session.invalidate()
                         }
@@ -129,7 +142,6 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
             }
         }
     }
-
     // MARK: PRIVATE FUNCTIONS
     private func getCurrentTime() -> String {
         let time = Date()
@@ -142,20 +154,5 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
         print("Not Supoort")
         session.alertMessage = "Tag is not NDEF complaint"
         session.invalidate()
-    }
-
-    private func postFirebaseCloudStore(pitTime: String) {
-        print("POST CLOUD STORE")
-        guard let userID = currentUserID, let displayName = currentUserDisplayName else {
-            print("Error getting userID or displayName")
-            return
-        }
-        DataService.instance.uploadPost(pittime: pitTime, displayName: displayName, userID: userID) { success in
-            if success {
-                print("Success Post!")
-            } else {
-                print("Error uploading post!")
-            }
-        }
     }
 }
