@@ -1,8 +1,15 @@
+# Basic Ignore Files
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 .DS_Store
-PitTime.xcworkspace/xcuserdata/
+
+# For SwiftLint and XcodeGen Files
+Generated/
+
+# Ignore UserInterfaceState.xcuserstate
+PitTime.xcworkspace/xcuserdata/kamimura.xcuserdatad/UserInterfaceState.xcuserstate
+
+# Ignore Breakpoints_v2.xcbkptlist
 PitTime.xcworkspace/xcuserdata/kamimura.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
 
-PitTime/project.yml
