@@ -134,7 +134,7 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
     private func getCurrentTime() -> String {
         let time = Date()
         print("CURRENT TIME = \(time)")
-        let currentTime = DateUtils.stringFromDate(date: time, format: "yyyy年MM月dd日 HH時mm分ss秒 Z")
+        let currentTime = DateHelper.instance.stringFromDate(date: time)
         return currentTime
     }
 

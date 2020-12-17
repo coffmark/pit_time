@@ -13,7 +13,7 @@ struct CardView: View {
     @State var image = UIImage(named: "noimage")!
 
     var body: some View {
-        VStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
+        VStack(alignment: .center, spacing: 0, content: {
             HStack {
                 Image(uiImage: image)
                     .resizable()
@@ -27,7 +27,7 @@ struct CardView: View {
                 Spacer(minLength: 0)
 
                 // year and month and day
-                Text("\(year(content: pit.pitTime))-\(month(content: pit.pitTime))-\(day(content: pit.pitTime))")
+                Text(DateHelper.instance.extractDate(dateString: pit.pitTime))
                     .font(.headline)
                     .fontWeight(.thin)
                     .foregroundColor(Color.MyTheme.blueColor)
@@ -36,7 +36,7 @@ struct CardView: View {
 
             VStack(alignment: .center, spacing: 5, content: {
                 // hour and minutes
-                Text("\(hour(content: pit.pitTime)):\(minutes(content: pit.pitTime))")
+                Text(DateHelper.instance.extractTime(timeString: pit.pitTime))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.MyTheme.blueColor)
@@ -55,36 +55,6 @@ struct CardView: View {
     }
 
     // MARK: FUNCTIONS
-    func year(content: String) -> String {
-        let year: String = DateUtils.stringFromOnlyYear(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return year
-    }
-
-    func month(content: String) -> String {
-        let month: String = DateUtils.stringFromDateOnlyMonth(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return month
-    }
-
-    func day(content: String) -> String {
-        let day: String = DateUtils.stringFromDateOnlyDay(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return day
-    }
-
-    func hour(content: String) -> String {
-        let hour: String = DateUtils.stringFromDateOnlyHour(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return hour
-    }
-
-    func minutes(content: String) -> String {
-        let minutes: String = DateUtils.stringFromDateOnlyMinutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return minutes
-    }
-
-    func intHour(content: String) -> Int {
-        let intHour: Int = DateUtils.HourFromTotalMunutes(date: DateUtils.dateFromString(string: content, format: "yyyy年MM月dd日 HH時mm分ss秒 Z"))
-        return intHour
-    }
-    
     func fetchProfileImage(userID: String) {
         ImageManager.instance.downloadProfileImage(userID: userID) { (retuendImage) in
             if let uiImage = retuendImage{
