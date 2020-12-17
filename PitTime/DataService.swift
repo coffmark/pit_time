@@ -60,11 +60,11 @@ class DataService {
                 if let userID = document.get(DatabasePostField.userID) as? String,
                    let displayName = document.get(DatabasePostField.displayName) as? String,
                    let timestamp = document.get(DatabasePostField.dateCreated) as? Timestamp,
-                   let pitTime = document.get(DatabasePostField.pitTime) as? String {
+                   let pitBeginTime = document.get(DatabasePostField.pitTime) as? String {
                     let date = timestamp.dateValue()
                     let postID = document.documentID
 
-                    let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitTime: pitTime)
+                    let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime)
 
                     postArray.append(newPost)
                 }

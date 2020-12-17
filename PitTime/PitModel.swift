@@ -15,7 +15,8 @@ struct PitModel: Identifiable, Hashable {
     var userID: String
     var username: String
     var dateCreated: Date
-    var pitTime: String
+    var pitBeginTime: String
+    var pitEndTime: String?
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

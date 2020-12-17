@@ -26,25 +26,22 @@ struct CardView: View {
                     .foregroundColor(Color.MyTheme.blueColor)
                 Spacer(minLength: 0)
 
-                // year and month and day
-                Text(DateHelper.instance.extractDate(dateString: pit.pitTime))
+                // Display Year/Month/Day
+                Text(DateHelper.instance.extractDate(dateString: pit.pitBeginTime))
                     .font(.headline)
                     .fontWeight(.thin)
                     .foregroundColor(Color.MyTheme.blueColor)
             }
             .padding(.all, 5)
-
-            VStack(alignment: .center, spacing: 5, content: {
-                // hour and minutes
-                Text(DateHelper.instance.extractTime(timeString: pit.pitTime))
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.MyTheme.blueColor)
-                Capsule()
-                    .fill(Color.MyTheme.blueColor)
-                    .frame(width: 80, height: 2, alignment: .center)
-            })
-            .padding(.vertical, 20)
+            
+            // Display Time
+            if let endTime = pit.pitEndTime {
+                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime)
+                
+            }else{
+                CardDefaultContentView(beginTime: pit.pitBeginTime)
+            }
+            
         })
         .background(Color.MyTheme.orangeColor)
         .border(Color.MyTheme.blueColor, width: 2)
@@ -65,11 +62,8 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-
-    static var pit = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitTime: "2020-11-30 22:56:49 +0000")
-
+    static var pit = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitBeginTime: "2020-11-30 22:56:49 +0900")
     static var previews: some View {
         CardView(pit: pit)
-        //            .previewLayout(.sizeThatFits)
     }
 }
