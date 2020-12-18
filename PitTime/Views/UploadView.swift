@@ -20,8 +20,7 @@ struct UploadView: View {
 
             VStack(alignment: .center, spacing: 40, content: {
                 Button(action: {
-                    // MARK: FIX ---- POST ID ----
-                    self.sessionWrite.beginScanning(isShareOthers: false, isEndTime: false, postID: "")
+                    self.sessionWrite.beginScanning(isShareOthers: false)
                 }, label: {
                     Text("一人で頑張る！")
                         .font(.title3)
@@ -34,8 +33,7 @@ struct UploadView: View {
                         .shadow(radius: 20)
                 })
                 Button(action: {
-                    // MARK: FIX ---- POST ID ----
-                    self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: false, postID: "")
+                    self.sessionWrite.beginScanning(isShareOthers: true)
                 }, label: {
                     Text("一緒に1日をスタートしましよう！")
                         .font(.title3)
