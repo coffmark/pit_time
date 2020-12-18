@@ -11,9 +11,6 @@ import UIKit
 // import RealmSwift
 
 class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
-    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
-    @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
-
     // MARK: PROPERTIES
     var session: NFCNDEFReaderSession?
     var isShareOthers: Bool?

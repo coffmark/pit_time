@@ -41,7 +41,7 @@ struct CardView: View {
                 
             }else{
                 // Only BeginTime
-                CardDefaultContentView(beginTime: pit.pitBeginTime, postID: pit.postID)
+                CardDefaultContentView(beginTime: pit.pitBeginTime, postID: pit.postID, userID: pit.userID)
             }
         })
         .background(Color.MyTheme.orangeColor)
