@@ -69,7 +69,7 @@ class DataService {
             handler(self.getPostFromSnapshot(querySnapshot: querySnapshot))
         }
     }
-    https://qiita.com/takasianpride/items/842a785af610025a2030
+
     // MARK: PRIVATE FUNCTIONS
     private func getPostFromSnapshot(querySnapshot: QuerySnapshot?) -> [PitModel] {
         var postArray = [PitModel]()
