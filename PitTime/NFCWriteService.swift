@@ -13,6 +13,7 @@ struct NFCWriteService {
     
     static let instance = NFCWriteService()
     
+    // MARK: FUNCTIONS
     func postCloudStoreOnlyBeginTime(beginTime: String) {
         print("POST CLOUD STORE")
         guard let userID = currentUserID, let displayName = currentUserDisplayName else {
@@ -28,7 +29,7 @@ struct NFCWriteService {
         }
     }
     
-    func AddEndTimeInCloudStore(pitEndTime: String){
+    func AddEndTimeInCloudStore(pitEndTime: String, postID: String){
         print("POST CLOUD STORE FOR END TIME")
         guard let userID = currentUserID else {
             print("Error getting userID")
@@ -36,11 +37,12 @@ struct NFCWriteService {
         }
         
         // Uplaod Post End Time And Use Post ID
-        
-        
-        
-        print(userID)
+        DataService.instance.uploadPostAddEndTime(pitEndTime: pitEndTime, userID: userID, postID: postID) { (success) in
+            if success {
+                print("Success POST!")
+            }else{
+                print("Error uploading post!")
+            }
+        }
     }
-    
-    
 }

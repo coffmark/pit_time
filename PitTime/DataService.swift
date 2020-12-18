@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 class DataService {
     // MARK: PROPERTIES
-
     static let instance = DataService()
     private var REF_POSTS = dbBase.collection("posts")
 
@@ -42,27 +41,28 @@ class DataService {
                 return
             }
         }
-        document.setData(postData)
     }
-    
     func uploadPostAddEndTime(pitEndTime: String, userID: String, postID: String, handler: @escaping(_ success: Bool) -> Void) {
         
+        // REFERENCE FORM DOCUMENT
+        let document = REF_POSTS.document(postID)
         
+        let postData: [String: Any] = [
+            DatabasePostField.pitEndTime: pitEndTime
+        ]
+        
+        document.setData(postData, merge: true){error in
+            if let error = error{
+                print("Error uploading data to post document\(error)")
+                handler(false)
+                return
+            }else{
+                handler(true)
+                return
+            }
+        }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     // MARK: DOWNLOAD FUNCTIONS
     func downloadPostsForFeed(handler: @escaping(_ posts: [PitModel]) -> Void) {
         REF_POSTS.order(by: DatabasePostField.userID, descending: true).limit(to: 50).getDocuments { querySnapshot, _ in

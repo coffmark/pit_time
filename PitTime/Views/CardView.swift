@@ -37,17 +37,17 @@ struct CardView: View {
             // Display Time
             if let endTime = pit.pitEndTime {
                 // In BeginTime And EndTime
-                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime, postID: pit.postID)
+                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime)
                 
             }else{
                 // Only BeginTime
-                CardDefaultContentView(beginTime: pit.pitBeginTime)
+                CardDefaultContentView(beginTime: pit.pitBeginTime, postID: pit.postID)
             }
         })
         .background(Color.MyTheme.orangeColor)
         .border(Color.MyTheme.orangeColor, width: 2)
         .padding(.horizontal, 15)
-        .shadow(color: Color.MyTheme.orangeColor, radius: 5)
+        .shadow(color: Color.MyTheme.orangeColor, radius: 3)
         .onAppear(perform: {
             fetchProfileImage(userID: pit.userID)
         })

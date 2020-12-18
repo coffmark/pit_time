@@ -11,7 +11,6 @@ struct CardContentInEndTimeView: View {
     //MARK: PROPERTIES
     var beginTime: String
     var endTime: String
-    var postID: String
     
     var body: some View {
         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 50, content: {
@@ -44,6 +43,6 @@ struct CardContentInEndTimeView: View {
 
 struct CardContentInEndTimeView_Previews: PreviewProvider {
     static var previews: some View {
-        CardContentInEndTimeView(beginTime: "2020-11-30 6:56:49 +0900", endTime: "2020-11-30 20:56:49 +0900", postID: "")
+        CardContentInEndTimeView(beginTime: "2020-11-30 6:56:49 +0900", endTime: "2020-11-30 20:56:49 +0900")
     }
 }

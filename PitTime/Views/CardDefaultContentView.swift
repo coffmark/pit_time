@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardDefaultContentView: View {
     var beginTime: String
+    var postID: String
     var sessionWrite = NFCSessionWrite()
     
     var body: some View {
@@ -25,8 +26,9 @@ struct CardDefaultContentView: View {
                         .frame(width: 80, height: 2, alignment: .center)
                 })
                 
+                // Add End Time
                 Button(action: {
-                    self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: false)
+                    self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: true, postID: postID)
                 }, label: {
                     Text("ピッとタイム")
                         .font(.headline)
@@ -44,7 +46,7 @@ struct CardDefaultContentView: View {
 
 struct CardDefaultContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardDefaultContentView(beginTime: "2020-11-30 7:56:49 +0900")
+        CardDefaultContentView(beginTime: "2020-11-30 7:56:49 +0900", postID: "")
             .previewLayout(.sizeThatFits)
     }
 }
