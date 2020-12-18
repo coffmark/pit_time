@@ -43,7 +43,6 @@ class DataService {
         }
     }
     func uploadPostAddEndTime(pitEndTime: String, userID: String, postID: String, handler: @escaping(_ success: Bool) -> Void) {
-        
         // REFERENCE FORM DOCUMENT
         let document = REF_POSTS.document(postID)
         
@@ -70,7 +69,7 @@ class DataService {
             handler(self.getPostFromSnapshot(querySnapshot: querySnapshot))
         }
     }
-
+    https://qiita.com/takasianpride/items/842a785af610025a2030
     // MARK: PRIVATE FUNCTIONS
     private func getPostFromSnapshot(querySnapshot: QuerySnapshot?) -> [PitModel] {
         var postArray = [PitModel]()
@@ -80,12 +79,18 @@ class DataService {
                    let displayName = document.get(DatabasePostField.displayName) as? String,
                    let timestamp = document.get(DatabasePostField.dateCreated) as? Timestamp,
                    let pitBeginTime = document.get(DatabasePostField.pitBeginTime) as? String {
+                    
                     let date = timestamp.dateValue()
                     let postID = document.documentID
-
-                    let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime)
-
-                    postArray.append(newPost)
+                    
+                    // Check Contain ENDTIME
+                    if let pitEndTime = document.get(DatabasePostField.pitEndTime) as? String{
+                        let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime, pitEndTime: pitEndTime)
+                        postArray.append(newPost)
+                    }else{
+                        let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime)
+                        postArray.append(newPost)
+                    }
                 }
             }
             return postArray
