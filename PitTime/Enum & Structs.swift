@@ -23,7 +23,8 @@ struct DatabasePostField {
     static let postID = "post_id"
     static let userID = "user_id"
     static let displayName = "display_name"
-    static let pitTime = "pit_time"
+    static let pitBeginTime = "pit_begin_time"
+    static let pitEndTime = "pit_end_time"
     static let dateCreated = "date_created"
 }
 

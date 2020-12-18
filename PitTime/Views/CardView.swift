@@ -15,40 +15,39 @@ struct CardView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0, content: {
             HStack {
+                // Display Profile Image
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30, alignment: .center)
                     .cornerRadius(15)
+                // Display Profile UserName
                 Text(pit.username)
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundColor(Color.MyTheme.blueColor)
                 Spacer(minLength: 0)
-
-                // year and month and day
-                Text(DateHelper.instance.extractDate(dateString: pit.pitTime))
+                // Display Year/Month/Day
+                Text(DateHelper.instance.extractDate(dateString: pit.pitBeginTime))
                     .font(.headline)
                     .fontWeight(.thin)
                     .foregroundColor(Color.MyTheme.blueColor)
             }
             .padding(.all, 5)
-
-            VStack(alignment: .center, spacing: 5, content: {
-                // hour and minutes
-                Text(DateHelper.instance.extractTime(timeString: pit.pitTime))
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.MyTheme.blueColor)
-                Capsule()
-                    .fill(Color.MyTheme.blueColor)
-                    .frame(width: 80, height: 2, alignment: .center)
-            })
-            .padding(.vertical, 20)
+            // Display Time
+            if let endTime = pit.pitEndTime {
+                // In BeginTime And EndTime
+                CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime)
+                
+            }else{
+                // Only BeginTime
+                CardDefaultContentView(beginTime: pit.pitBeginTime, postID: pit.postID)
+            }
         })
         .background(Color.MyTheme.orangeColor)
-        .border(Color.MyTheme.blueColor, width: 2)
-        .padding(.horizontal, 10)
+        .border(Color.MyTheme.orangeColor, width: 2)
+        .padding(.horizontal, 15)
+        .shadow(color: Color.MyTheme.orangeColor, radius: 3)
         .onAppear(perform: {
             fetchProfileImage(userID: pit.userID)
         })
@@ -65,11 +64,8 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-
-    static var pit = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitTime: "2020-11-30 22:56:49 +0000")
-
+    static var pit = PitModel(postID: "", userID: "", username: "Ryosuke", dateCreated: Date(), pitBeginTime: "2020-11-30 22:56:49 +0900")
     static var previews: some View {
         CardView(pit: pit)
-        //            .previewLayout(.sizeThatFits)
     }
 }
