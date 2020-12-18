@@ -27,6 +27,8 @@
 		9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A11C256CA04000F8D835 /* DateFormatter.swift */; };
 		9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A125256CAE6100F8D835 /* Enum & Structs.swift */; };
 		92353E0C257DC37A0008AB67 /* ImageManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92353E0B257DC37A0008AB67 /* ImageManeger.swift */; };
+		92402010258B28C500BAAA65 /* CardDefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240200F258B28C500BAAA65 /* CardDefaultContentView.swift */; };
+		9240204A258B2F3500BAAA65 /* CardContentInEndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92402049258B2F3500BAAA65 /* CardContentInEndTimeView.swift */; };
 		926F328A256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328B256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
 		926F328C256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
@@ -46,6 +48,7 @@
 		92C55A63256B78010091C1C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C55A62256B78010091C1C4 /* Preview Assets.xcassets */; };
 		92C55A6E256B78020091C1C4 /* PitTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A6D256B78020091C1C4 /* PitTimeTests.swift */; };
 		92C55A79256B78020091C1C4 /* PitTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A78256B78020091C1C4 /* PitTimeUITests.swift */; };
+		92E16F6F258C255E00B924E7 /* NFCWriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16F6E258C255E00B924E7 /* NFCWriteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,8 @@
 		9234A121256CA28800F8D835 /* PitTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitTime.entitlements; sourceTree = "<group>"; };
 		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
 		92353E0B257DC37A0008AB67 /* ImageManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManeger.swift; path = ../../../../.Trash/ImageManeger.swift; sourceTree = "<group>"; };
+		9240200F258B28C500BAAA65 /* CardDefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDefaultContentView.swift; sourceTree = "<group>"; };
+		92402049258B2F3500BAAA65 /* CardContentInEndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentInEndTimeView.swift; sourceTree = "<group>"; };
 		926F3289256DDFCC004E1251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info/PitTime/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926FA3D4257C973B005530FA /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
 		926FA3E2257C9FE2005530FA /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		92C55A74256B78020091C1C4 /* PitTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C55A78256B78020091C1C4 /* PitTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeUITests.swift; sourceTree = "<group>"; };
 		92C55A7A256B78020091C1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92E16F6E258C255E00B924E7 /* NFCWriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCWriteService.swift; sourceTree = "<group>"; };
 		A45375F2FEEC37501064C207 /* Pods-PitTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTimeTests.debug.xcconfig"; path = "Target Support Files/Pods-PitTimeTests/Pods-PitTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B883D827DDFD367303DF6F6C /* Pods-PitTime-PitTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTime-PitTimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-PitTime-PitTimeUITests/Pods-PitTime-PitTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D700D0A6A51F121CDDC2EE68 /* Pods-PitTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTimeTests.release.xcconfig"; path = "Target Support Files/Pods-PitTimeTests/Pods-PitTimeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 			children = (
 				9234A0CF256B7AED00F8D835 /* HomeView.swift */,
 				9234A109256B881E00F8D835 /* CardView.swift */,
+				9240200F258B28C500BAAA65 /* CardDefaultContentView.swift */,
+				92402049258B2F3500BAAA65 /* CardContentInEndTimeView.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 			children = (
 				9274F7EB256DECC40091D593 /* AuthService.swift */,
 				9227328A2574BAF900FE37EC /* DataService.swift */,
+				92E16F6E258C255E00B924E7 /* NFCWriteService.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -657,8 +666,10 @@
 				9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */,
 				922732862574AF1500FE37EC /* SettingsRowView.swift in Sources */,
 				9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */,
+				92E16F6F258C255E00B924E7 /* NFCWriteService.swift in Sources */,
 				92353E0C257DC37A0008AB67 /* ImageManeger.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
+				9240204A258B2F3500BAAA65 /* CardContentInEndTimeView.swift in Sources */,
 				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,
 				9234A0FF256B840900F8D835 /* PitModel.swift in Sources */,
 				9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */,
@@ -670,6 +681,7 @@
 				9274F7E6256DE7870091D593 /* OnboardingView.swift in Sources */,
 				9274F7EC256DECC40091D593 /* AuthService.swift in Sources */,
 				9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */,
+				92402010258B28C500BAAA65 /* CardDefaultContentView.swift in Sources */,
 				9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */,
 				9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */,
 				9274F83C256F347D0091D593 /* SettingsView.swift in Sources */,

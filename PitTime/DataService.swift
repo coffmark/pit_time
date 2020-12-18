@@ -11,12 +11,11 @@ import FirebaseFirestore
 
 class DataService {
     // MARK: PROPERTIES
-
     static let instance = DataService()
     private var REF_POSTS = dbBase.collection("posts")
 
     // MARK: UPLOAD FUNCTIONS
-    func uploadPost(pittime: String, displayName: String, userID: String, handler: @escaping(_ success: Bool) -> Void) {
+    func uploadPostOnlyBeginTime(pitBeginTime: String, displayName: String, userID: String, handler: @escaping(_ success: Bool) -> Void) {
 
         // Create new post document
         let document = REF_POSTS.document()
@@ -27,7 +26,7 @@ class DataService {
             DatabasePostField.postID: postID,
             DatabasePostField.userID: userID,
             DatabasePostField.displayName: displayName,
-            DatabasePostField.pitTime: pittime,
+            DatabasePostField.pitBeginTime: pitBeginTime,
             DatabasePostField.dateCreated: FieldValue.serverTimestamp()
         ]
 
@@ -42,8 +41,27 @@ class DataService {
                 return
             }
         }
-        document.setData(postData)
     }
+    func uploadPostAddEndTime(pitEndTime: String, userID: String, postID: String, handler: @escaping(_ success: Bool) -> Void) {
+        // REFERENCE FORM DOCUMENT
+        let document = REF_POSTS.document(postID)
+        
+        let postData: [String: Any] = [
+            DatabasePostField.pitEndTime: pitEndTime
+        ]
+        
+        document.setData(postData, merge: true){error in
+            if let error = error{
+                print("Error uploading data to post document\(error)")
+                handler(false)
+                return
+            }else{
+                handler(true)
+                return
+            }
+        }
+    }
+     
     // MARK: DOWNLOAD FUNCTIONS
     func downloadPostsForFeed(handler: @escaping(_ posts: [PitModel]) -> Void) {
         REF_POSTS.order(by: DatabasePostField.userID, descending: true).limit(to: 50).getDocuments { querySnapshot, _ in
@@ -60,13 +78,19 @@ class DataService {
                 if let userID = document.get(DatabasePostField.userID) as? String,
                    let displayName = document.get(DatabasePostField.displayName) as? String,
                    let timestamp = document.get(DatabasePostField.dateCreated) as? Timestamp,
-                   let pitTime = document.get(DatabasePostField.pitTime) as? String {
+                   let pitBeginTime = document.get(DatabasePostField.pitBeginTime) as? String {
+                    
                     let date = timestamp.dateValue()
                     let postID = document.documentID
-
-                    let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitTime: pitTime)
-
-                    postArray.append(newPost)
+                    
+                    // Check Contain ENDTIME
+                    if let pitEndTime = document.get(DatabasePostField.pitEndTime) as? String{
+                        let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime, pitEndTime: pitEndTime)
+                        postArray.append(newPost)
+                    }else{
+                        let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime)
+                        postArray.append(newPost)
+                    }
                 }
             }
             return postArray
