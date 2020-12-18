@@ -42,24 +42,15 @@ class DataService {
             }
         }
     }
-    func uploadPostAddEndTime(pitEndTime: String, userID: String, postID: String, handler: @escaping(_ success: Bool) -> Void) {
+    func uploadPostAddEndTime(pitEndTime: String, postID: String, handler: @escaping(_ success: Bool) -> Void) {
         // REFERENCE FORM DOCUMENT
         let document = REF_POSTS.document(postID)
         
-        document.getDocument { (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot, documentSnapshot.exists{
-                let fetchedUserID = documentSnapshot.get(DatabasePostField.userID) as? String
-                print("\(fetchedUserID)")
-            }else{
-                print("Document does not exist")
-                return
-            }
-        }
-        
+        // Post Data
         let postData: [String: Any] = [
             DatabasePostField.pitEndTime: pitEndTime
         ]
-        
+        // Insert Post Data
         document.setData(postData, merge: true){error in
             if let error = error{
                 print("Error uploading data to post document\(error)")
@@ -70,7 +61,6 @@ class DataService {
                 return
             }
         }
-        
     }
     
     // MARK: DOWNLOAD FUNCTIONS
@@ -110,7 +100,5 @@ class DataService {
             return postArray
         }
     }
-    
-//    private func MatchUserAndOwner()
 }
 

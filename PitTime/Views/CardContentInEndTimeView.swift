@@ -25,7 +25,6 @@ struct CardContentInEndTimeView: View {
                     .frame(width: 80, height: 2, alignment: .center)
             })
             
-            
             VStack(alignment: .center, spacing: 5, content: {
                 // Display EndTime
                 Text(DateHelper.instance.extractTime(timeString: endTime))

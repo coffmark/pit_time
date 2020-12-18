@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct CardDefaultContentView: View {
+    @AppStorage(CurrentUserDefaults.userID) var curreentUserID: String?
     var beginTime: String
     var postID: String
+    var userID: String
     var sessionWrite = NFCSessionWrite()
+    
+    // Alert
+    @State var showError: Bool = false
     
     var body: some View {
         VStack {
@@ -28,7 +33,12 @@ struct CardDefaultContentView: View {
                 
                 // Add End Time
                 Button(action: {
-                    self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: true, postID: postID)
+                    guard let displayUserID = curreentUserID else { return print("displayUserID is nil") }
+                    if displayUserID == userID {
+                        self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: true, postID: postID)
+                    }else{
+                        self.showError.toggle()
+                    }
                 }, label: {
                     Text("ピッとタイム")
                         .font(.headline)
@@ -40,13 +50,16 @@ struct CardDefaultContentView: View {
                 })
             })
             .padding(.vertical, 20)
+            .alert(isPresented: $showError) { () -> Alert in
+                Alert(title: Text("アカウントが一致しておりません。"), message: Text("投稿したアイテムしか変更を加えることができません。"), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
 
 struct CardDefaultContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardDefaultContentView(beginTime: "2020-11-30 7:56:49 +0900", postID: "")
+        CardDefaultContentView(beginTime: "2020-11-30 7:56:49 +0900", postID: "", userID: "")
             .previewLayout(.sizeThatFits)
     }
 }

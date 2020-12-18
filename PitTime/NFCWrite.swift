@@ -11,8 +11,6 @@ import UIKit
 // import RealmSwift
 
 class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
-    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
-
     // MARK: PROPERTIES
     var session: NFCNDEFReaderSession?
     var isShareOthers: Bool?
@@ -107,7 +105,7 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
                                 print("SUCCESS WRITE!!")
                                 
                                 // Switch Use Post Method
-                                self.switchPostCloudStore(isShareOthers: self.isShareOthers, isEndTime: self.isEndTime, currentTime: currentTime, postID: self.postID, userID: self.currentUserID)
+                                self.switchPostCloudStore(isShareOthers: self.isShareOthers, isEndTime: self.isEndTime, currentTime: currentTime, postID: self.postID)
                             }
                             session.invalidate()
                         }
@@ -126,16 +124,15 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
         }
     }
     // MARK: PRIVATE FUNCTIONS
-    private func switchPostCloudStore(isShareOthers: Bool?, isEndTime: Bool?, currentTime: String, postID: String?, userID: String?){
+    private func switchPostCloudStore(isShareOthers: Bool?, isEndTime: Bool?, currentTime: String, postID: String?){
         guard let isShare = self.isShareOthers else { return print("isShareOthers is nil")}
         guard let isEnd = self.isEndTime else { return print("isEndTime is nil") }
-        guard let userID = currentUserID else{ return print("currentUserID is nil") }
         
         if isShare == true {
             if isEnd == true {
                 if let postID = postID {
                     // Share and Contains End Time
-                    NFCWriteService.instance.AddEndTimeInCloudStore(pitEndTime: currentTime, postID: postID, userID: userID)
+                    NFCWriteService.instance.AddEndTimeInCloudStore(pitEndTime: currentTime, postID: postID)
                 }else{
                     print("Error postID is nil")
                 }
