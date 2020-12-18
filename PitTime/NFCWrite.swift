@@ -18,7 +18,7 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
     var postID: String?
 
     // MARK: PUBLIC FUNCTIONS
-    public func  beginScanning(isShareOthers: Bool, isEndTime: Bool, postID: String) {
+    func beginScanning(isShareOthers: Bool, isEndTime: Bool, postID: String) {
         guard NFCNDEFReaderSession.readingAvailable else {
             print("スキャンに対応されていない機種です。申し訳ございません。")
             return
@@ -103,7 +103,7 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
                             } else {
                                 session.alertMessage = "成功しました！🤩"
                                 print("SUCCESS WRITE!!")
-                                
+
                                 // Switch Use Post Method
                                 self.switchPostCloudStore(isShareOthers: self.isShareOthers, isEndTime: self.isEndTime, currentTime: currentTime, postID: self.postID)
                             }
@@ -124,28 +124,28 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
         }
     }
     // MARK: PRIVATE FUNCTIONS
-    private func switchPostCloudStore(isShareOthers: Bool?, isEndTime: Bool?, currentTime: String, postID: String?){
-        guard let isShare = self.isShareOthers else { return print("isShareOthers is nil")}
+    private func switchPostCloudStore(isShareOthers: Bool?, isEndTime: Bool?, currentTime: String, postID: String?) {
+        guard let isShare = self.isShareOthers else { return print("isShareOthers is nil") }
         guard let isEnd = self.isEndTime else { return print("isEndTime is nil") }
-        
+
         if isShare == true {
             if isEnd == true {
                 if let postID = postID {
                     // Share and Contains End Time
                     NFCWriteService.instance.AddEndTimeInCloudStore(pitEndTime: currentTime, postID: postID)
-                }else{
+                } else {
                     print("Error postID is nil")
                 }
-            }else{
+            } else {
                 // Share and Not Contains Begin Time but Contains Begin Time
                 NFCWriteService.instance.postCloudStoreOnlyBeginTime(beginTime: currentTime)
             }
-        }else{
-            //MARK: FIX: ------ NOT SHARE AND CONTAINS END TIME ---------
+        } else {
+            // MARK: FIX: ------ NOT SHARE AND CONTAINS END TIME ---------
             print("THIS IS NOT SHARE AND NOT CONTAINS END TIME")
         }
     }
-    
+
     private func getCurrentTime() -> String {
         let time = Date()
         print("CURRENT TIME = \(time)")

@@ -13,10 +13,10 @@ struct CardDefaultContentView: View {
     var postID: String
     var userID: String
     var sessionWrite = NFCSessionWrite()
-    
+
     // Alert
     @State var showError: Bool = false
-    
+
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 50, content: {
@@ -30,13 +30,13 @@ struct CardDefaultContentView: View {
                         .fill(Color.MyTheme.blueColor)
                         .frame(width: 80, height: 2, alignment: .center)
                 })
-                
+
                 // Add End Time
                 Button(action: {
                     guard let displayUserID = curreentUserID else { return print("displayUserID is nil") }
                     if displayUserID == userID {
                         self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: true, postID: postID)
-                    }else{
+                    } else {
                         self.showError.toggle()
                     }
                 }, label: {

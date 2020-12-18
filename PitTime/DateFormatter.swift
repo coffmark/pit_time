@@ -7,14 +7,12 @@
 
 import Foundation
 
-
-
 struct DateHelper {
-    
+
     static let instance = DateHelper()
-    
-    //MARK: FUNCTIONS
-    func extractDate(dateString: String) -> String{
+
+    // MARK: FUNCTIONS
+    func extractDate(dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
@@ -23,7 +21,7 @@ struct DateHelper {
         let returnedDate = dateFormatter.string(from: date)
         return returnedDate
     }
-    
+
     func extractTime(timeString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
@@ -33,19 +31,18 @@ struct DateHelper {
         let returnedTime = dateFormatter.string(from: time)
         return returnedTime
     }
-    
-    func stringFromDate(date: Date) -> String{
-        let dateFormatter: DateFormatter = DateFormatter()
+
+    func stringFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         return dateFormatter.string(from: date)
     }
-    
-    
-    //MARK: PRIVATE FUNCTION
-    private func dateFromString(dateString: String) -> Date{
-        let dateFormatter: DateFormatter = DateFormatter()
+
+    // MARK: PRIVATE FUNCTION
+    private func dateFromString(dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         return dateFormatter.date(from: dateString)!
