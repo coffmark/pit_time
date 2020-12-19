@@ -390,6 +390,7 @@
 				92C55A56256B77FF0091C1C4 /* Resources */,
 				8B4859539467FD9D39B6697E /* [CP] Embed Pods Frameworks */,
 				878C49C0FE956C140AF5191E /* [CP] Copy Pods Resources */,
+				922E4A3E258CA481006EABD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -607,6 +608,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PitTime/Pods-PitTime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		922E4A3E258CA481006EABD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which mint >/dev/null; then\n  mint run swiftlint swiftlint autocorrect --format\n  mint run swiftlint swiftlint\nelse\n  echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
 		};
 		EC2908959652C420B8DBF2CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

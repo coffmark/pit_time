@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CardContentInEndTimeView: View {
-    //MARK: PROPERTIES
+    // MARK: PROPERTIES
     var beginTime: String
     var endTime: String
-    
+
     var body: some View {
-        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 50, content: {
+        HStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 50, content: {
             VStack(alignment: .center, spacing: 5, content: {
                 // Display BeginTime
                 Text(DateHelper.instance.extractTime(timeString: beginTime))
@@ -24,7 +24,7 @@ struct CardContentInEndTimeView: View {
                     .fill(Color.MyTheme.blueColor)
                     .frame(width: 80, height: 2, alignment: .center)
             })
-            
+
             VStack(alignment: .center, spacing: 5, content: {
                 // Display EndTime
                 Text(DateHelper.instance.extractTime(timeString: endTime))

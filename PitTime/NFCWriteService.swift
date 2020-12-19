@@ -10,9 +10,9 @@ import SwiftUI
 struct NFCWriteService {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
-    
+
     static let instance = NFCWriteService()
-    
+
     // MARK: FUNCTIONS
     func postCloudStoreOnlyBeginTime(beginTime: String) {
         print("POST CLOUD STORE")
@@ -28,13 +28,13 @@ struct NFCWriteService {
             }
         }
     }
-    
-    func AddEndTimeInCloudStore(pitEndTime: String, postID: String){
+
+    func AddEndTimeInCloudStore(pitEndTime: String, postID: String) {
         // Uplaod Post End Time And Use Post ID
-        DataService.instance.uploadPostAddEndTime(pitEndTime: pitEndTime, postID: postID) { (success) in
+        DataService.instance.uploadPostAddEndTime(pitEndTime: pitEndTime, postID: postID) { success in
             if success {
                 print("Success POST!")
-            }else{
+            } else {
                 print("Error uploading post!")
             }
         }

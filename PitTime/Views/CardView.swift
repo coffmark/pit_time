@@ -38,8 +38,8 @@ struct CardView: View {
             if let endTime = pit.pitEndTime {
                 // In BeginTime And EndTime
                 CardContentInEndTimeView(beginTime: pit.pitBeginTime, endTime: endTime)
-                
-            }else{
+
+            } else {
                 // Only BeginTime
                 CardDefaultContentView(beginTime: pit.pitBeginTime, postID: pit.postID, userID: pit.userID)
             }
@@ -55,8 +55,8 @@ struct CardView: View {
 
     // MARK: FUNCTIONS
     func fetchProfileImage(userID: String) {
-        ImageManager.instance.downloadProfileImage(userID: userID) { (retuendImage) in
-            if let uiImage = retuendImage{
+        ImageManager.instance.downloadProfileImage(userID: userID) { retuendImage in
+            if let uiImage = retuendImage {
                 self.image = uiImage
             }
         }

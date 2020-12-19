@@ -22,9 +22,10 @@ class SignInAnonymous {
                 print("Error Auth Anonymously")
             } else {
                 // Success
-                guard let user = authResult?.user else { return }
+                guard let user = authResult?.user else {
+                    return
+                }
                 let isAnonymous = user.isAnonymous
-                let uid = user.uid
                 let fullName: String = "匿名"
                 let email: String = "example.gmaile"
                 let provider: String = "anonymous"

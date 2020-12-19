@@ -106,9 +106,8 @@ class AuthService {
             DatabaseUserField.bio: "",
             DatabaseUserField.dateCreated: FieldValue.serverTimestamp()
         ]
-
         document.setData(userData) {error in
-            if let error = error {
+            if error != nil {
                 // Error
                 print("Error uploading data to user document")
                 handler(nil)
@@ -117,7 +116,6 @@ class AuthService {
                 handler(userID)
             }
         }
-
     }
 
     func getUserInfo(forUserID userID: String, handler: @escaping (_ name: String?, _ bio: String?) -> Void) {
@@ -140,7 +138,7 @@ class AuthService {
     private func checkIfUserExistsInDatabase(providerID: String, handler: @escaping (_ existingUserID: String?) -> Void) {
         // If a userID is returned, then the user does exist in our database
         REF_USER.whereField(DatabaseUserField.providerID, isEqualTo: providerID).getDocuments {querySnapshot, _ in
-            if let snapshot = querySnapshot, snapshot.count > 0, let document = snapshot.documents.first {
+            if let snapshot = querySnapshot, snapshot.isEmpty != true, let document = snapshot.documents.first {
                 let existingUserID = document.documentID
                 handler(existingUserID)
             } else {
