@@ -65,9 +65,19 @@ class DataService {
 
     // MARK: DOWNLOAD FUNCTIONS
     func downloadPostsForFeed(handler: @escaping(_ posts: [PitModel]) -> Void) {
-        REF_POSTS.order(by: DatabasePostField.userID, descending: true).limit(to: 50).getDocuments { querySnapshot, _ in
-
+        REF_POSTS.order(by: DatabasePostField.dateCreated, descending: true).limit(to: 50).getDocuments { querySnapshot, _ in
             handler(self.getPostFromSnapshot(querySnapshot: querySnapshot))
+        }
+    }
+
+    // MARK: PROFILE DOWNLOAD FUNCTIONS
+    func downloadPostsForProfile(userID: String, handler: @escaping(_ posts: [PitModel]) -> Void) {
+        REF_POSTS.whereField(DatabasePostField.userID, isEqualTo: userID).limit(to: 50).getDocuments { querySnapshot, error in
+            if let error = error {
+                print("Error: Download Posts For Profile View\(error)")
+            } else {
+                handler(self.getPostFromSnapshot(querySnapshot: querySnapshot))
+            }
         }
     }
 

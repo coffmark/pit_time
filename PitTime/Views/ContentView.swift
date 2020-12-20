@@ -12,8 +12,9 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     @AppStorage(CurrentUserDefaults.isFirstVisit) var isCurrentUserFirstVisit: Bool?
-
+    // Feed Posts
     @State var feedPosts = PitArrayObject(shuffled: false)
+
     // Full Screen Cover
     @State var isShowTutorialView: Bool = false
 
@@ -44,7 +45,7 @@ struct ContentView: View {
             ZStack {
                 if let userID = currentUserID, let displayName = currentUserDisplayName {
                     NavigationView {
-                        ProfileView(profileUserID: userID, profileDisplayName: displayName, isMyProfile: true)
+                        ProfileView(pits: PitArrayObject(userID: userID), profileUserID: userID, profileDisplayName: displayName, isMyProfile: true)
                     }
                 } else {
                     SignUpView()
