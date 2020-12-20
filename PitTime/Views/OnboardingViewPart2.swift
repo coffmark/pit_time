@@ -59,16 +59,15 @@ struct OnboardingViewPart2: View {
             .accentColor(Color.MyTheme.blueColor)
             .opacity(displayName.isEmpty ? 0.0 : 1.0)
             .animation(.easeOut(duration:1.0))
-
         })
+
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.MyTheme.beigeColor)
         .edgesIgnoringSafeArea(.all)
         .alert(isPresented: $showError) {() -> Alert in
             Alert(title: Text("Error creating profile 😤"))
         }
-
-        // Hide Anonymous Name
+        // Hide Initialize Anonymous Name
         .onAppear(perform: {
             if displayName == initialAnonymousName {
                 displayName = ""

@@ -11,7 +11,7 @@ struct SettingsRowView: View {
     var text: String
 
     var body: some View {
-        Text(text)
+        Text(text.uppercased())
             .foregroundColor(.primary)
         Spacer()
         Image(systemName: "chevron.right")

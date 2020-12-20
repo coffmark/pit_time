@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         NavigationView {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
@@ -20,7 +20,7 @@ struct SettingsView: View {
                                 SettingsLabelView(title: "Pit Time", imageName: "dot.radiowaves.left.and.right"),
                              content: {
                                 HStack {
-                                    Image("noimage")
+                                    Image("logo")
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 120, height: 120, alignment: .center)
@@ -30,8 +30,9 @@ struct SettingsView: View {
                                             .font(.footnote)
                                         Spacer()
                                         Text("必要なもの: NFCタグ")
-                                            .font(.body)
-                                            .foregroundColor(Color.MyTheme.blueColor)
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(colorScheme == .light ? Color.MyTheme.orangeColor : Color.MyTheme.orangeColor)
                                     }
                                 }
                              }

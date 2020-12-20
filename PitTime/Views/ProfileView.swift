@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
-
+    @ObservedObject var pits: PitArrayObject
     var profileUserID: String
     @State var profileDisplayName: String
     var isMyProfile: Bool
@@ -23,7 +23,10 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false, content: {
                 ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
+                HomeView(pits: pits)
             })
+            .offset(x: 0, y: 20)
+
         }
         .navigationBarTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
@@ -48,6 +51,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(profileUserID: "Ryosuke", profileDisplayName: "", isMyProfile: true)
+        ProfileView(pits: PitArrayObject(shuffled: false), profileUserID: "Ryosuke", profileDisplayName: "", isMyProfile: true)
     }
 }

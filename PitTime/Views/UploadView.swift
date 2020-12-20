@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct UploadView: View {
-
     var sessionWrite = NFCSessionWrite()
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
-    @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
 
+    // Alert
+    @State var showWarningNotLoggedIn: Bool = false
     var body: some View {
         ZStack {
             Color.MyTheme.blueColor
@@ -21,7 +21,11 @@ struct UploadView: View {
             VStack(alignment: .center, spacing: 40, content: {
                 Button(action: {
                     // MARK: FIX ---- POST ID ----
-                    self.sessionWrite.beginScanning(isShareOthers: false, isEndTime: false, postID: "")
+                    if currentUserID != nil {
+                        self.sessionWrite.beginScanning(isShareOthers: false, isEndTime: false, postID: "")
+                    } else {
+                        self.showWarningNotLoggedIn.toggle()
+                    }
                 }, label: {
                     Text("一人で頑張る！")
                         .font(.title3)
@@ -35,7 +39,11 @@ struct UploadView: View {
                 })
                 Button(action: {
                     // MARK: FIX ---- POST ID ----
-                    self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: false, postID: "")
+                    if currentUserID != nil {
+                        self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: false, postID: "")
+                    } else {
+                        self.showWarningNotLoggedIn.toggle()
+                    }
                 }, label: {
                     Text("一緒に1日をスタートしましよう！")
                         .font(.title3)
@@ -52,6 +60,9 @@ struct UploadView: View {
         .padding(.all, 40)
         .background(Color.MyTheme.blueColor)
         .edgesIgnoringSafeArea(.all)
+        .alert(isPresented: $showWarningNotLoggedIn, content: {
+            Alert(title: Text("ログインしておりません。"), message: Text("ログインしていただく必要があります。🥺"), dismissButton: .default(Text("OK")))
+        })
     }
 }
 
