@@ -24,6 +24,8 @@ struct ProfileView: View {
                 ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
             })
+            .offset(x: 0, y: 20)
+
         }
         .navigationBarTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
