@@ -15,7 +15,7 @@ struct CardDefaultContentView: View {
     var sessionWrite = NFCSessionWrite()
 
     // Alert
-    @State var showError: Bool = false
+    @State var showErrorAccoutMismatch: Bool = false
 
     var body: some View {
         VStack {
@@ -33,11 +33,15 @@ struct CardDefaultContentView: View {
 
                 // Add End Time
                 Button(action: {
-                    guard let displayUserID = curreentUserID else { return print("displayUserID is nil") }
+                    guard let displayUserID = curreentUserID else {
+                        print("displayUserID is nil")
+                        self.showErrorAccoutMismatch.toggle()
+                        return
+                    }
                     if displayUserID == userID {
                         self.sessionWrite.beginScanning(isShareOthers: true, isEndTime: true, postID: postID)
                     } else {
-                        self.showError.toggle()
+                        self.showErrorAccoutMismatch.toggle()
                     }
                 }, label: {
                     Text("ピッとタイム")
@@ -50,7 +54,7 @@ struct CardDefaultContentView: View {
                 })
             })
             .padding(.vertical, 20)
-            .alert(isPresented: $showError) { () -> Alert in
+            .alert(isPresented: $showErrorAccoutMismatch) { () -> Alert in
                 Alert(title: Text("アカウントが一致しておりません。"), message: Text("投稿したアイテムしか変更を加えることができません。"), dismissButton: .default(Text("OK")))
             }
         }
