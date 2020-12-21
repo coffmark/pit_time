@@ -49,6 +49,7 @@
 		92C55A6E256B78020091C1C4 /* PitTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A6D256B78020091C1C4 /* PitTimeTests.swift */; };
 		92C55A79256B78020091C1C4 /* PitTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A78256B78020091C1C4 /* PitTimeUITests.swift */; };
 		92E16F6F258C255E00B924E7 /* NFCWriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E16F6E258C255E00B924E7 /* NFCWriteService.swift */; };
+		92E3CE5D259026A5007A85DB /* ProfileNonPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3CE5C259026A5007A85DB /* ProfileNonPostsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		92C55A78256B78020091C1C4 /* PitTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTimeUITests.swift; sourceTree = "<group>"; };
 		92C55A7A256B78020091C1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E16F6E258C255E00B924E7 /* NFCWriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCWriteService.swift; sourceTree = "<group>"; };
+		92E3CE5C259026A5007A85DB /* ProfileNonPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNonPostsView.swift; sourceTree = "<group>"; };
 		A45375F2FEEC37501064C207 /* Pods-PitTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTimeTests.debug.xcconfig"; path = "Target Support Files/Pods-PitTimeTests/Pods-PitTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B883D827DDFD367303DF6F6C /* Pods-PitTime-PitTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTime-PitTimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-PitTime-PitTimeUITests/Pods-PitTime-PitTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D700D0A6A51F121CDDC2EE68 /* Pods-PitTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitTimeTests.release.xcconfig"; path = "Target Support Files/Pods-PitTimeTests/Pods-PitTimeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				9234A0DC256B7B2300F8D835 /* ProfileView.swift */,
+				92E3CE5C259026A5007A85DB /* ProfileNonPostsView.swift */,
 				9234A0E1256B7CE000F8D835 /* SignUpView.swift */,
 				9274F82B256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift */,
 				9274F7E5256DE7870091D593 /* OnboardingView.swift */,
@@ -676,6 +679,7 @@
 				9227328B2574BAF900FE37EC /* DataService.swift in Sources */,
 				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				922730A4257DD44000FE778E /* ImagePicker.swift in Sources */,
+				92E3CE5D259026A5007A85DB /* ProfileNonPostsView.swift in Sources */,
 				92895C102574847D00330927 /* SettingsLabelView.swift in Sources */,
 				92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */,
 				9274F82C256E2C4D0091D593 /* SignInWithAppleButtonCustom.swift in Sources */,
@@ -858,6 +862,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6C5B31B416EE03C716162FF /* Pods-PitTime.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PitTime/PitTime.entitlements;
@@ -872,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kamimura.PitTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -884,6 +889,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC02CAD5834BD66D0CF9259E /* Pods-PitTime.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PitTime/PitTime.entitlements;
@@ -898,7 +904,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kamimura.PitTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
