@@ -21,6 +21,10 @@ struct CardDefaultContentView: View {
         VStack {
             HStack(alignment: .center, spacing: 50, content: {
                 VStack(alignment: .center, spacing: 5, content: {
+                    Text("Start".uppercased())
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.MyTheme.blueColor)
                     // Display Only BeginTime
                     Text(DateHelper.instance.extractTime(timeString: beginTime))
                         .font(.largeTitle)

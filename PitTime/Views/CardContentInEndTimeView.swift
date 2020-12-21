@@ -13,8 +13,12 @@ struct CardContentInEndTimeView: View {
     var endTime: String
 
     var body: some View {
-        HStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 50, content: {
+        HStack(alignment: .center, spacing: 20, content: {
             VStack(alignment: .center, spacing: 5, content: {
+                Text("Start".uppercased())
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.MyTheme.blueColor)
                 // Display BeginTime
                 Text(DateHelper.instance.extractTime(timeString: beginTime))
                     .font(.largeTitle)
@@ -25,7 +29,15 @@ struct CardContentInEndTimeView: View {
                     .frame(width: 80, height: 2, alignment: .center)
             })
 
+            Image(systemName: "arrow.right")
+                .font(.title3)
+                .foregroundColor(Color.MyTheme.blueColor)
+
             VStack(alignment: .center, spacing: 5, content: {
+                Text("End".uppercased())
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.MyTheme.blueColor)
                 // Display EndTime
                 Text(DateHelper.instance.extractTime(timeString: endTime))
                     .font(.largeTitle)

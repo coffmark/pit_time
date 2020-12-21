@@ -23,7 +23,12 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false, content: {
                 ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
-                HomeView(pits: pits)
+                if pits.pitArray.isEmpty {
+                    // Non Posts
+                    ProfileNonPostsView()
+                } else {
+                    HomeView(pits: pits)
+                }
             })
             .offset(x: 0, y: 20)
 
