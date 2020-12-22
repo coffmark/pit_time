@@ -17,6 +17,8 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
     var isEndTime: Bool?
     var postID: String?
 
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+
     // MARK: PUBLIC FUNCTIONS
     func beginScanning(isShareOthers: Bool, isEndTime: Bool, postID: String) {
         guard NFCNDEFReaderSession.readingAvailable else {
@@ -127,12 +129,13 @@ class NFCSessionWrite: NSObject, NFCNDEFReaderSessionDelegate {
     private func switchPostCloudStore(isShareOthers: Bool?, isEndTime: Bool?, currentTime: String, postID: String?) {
         guard let isShare = self.isShareOthers else { return print("isShareOthers is nil") }
         guard let isEnd = self.isEndTime else { return print("isEndTime is nil") }
+        guard let userID = currentUserID else { return print("currentUserID is nil") }
 
         if isShare == true {
             if isEnd == true {
                 if let postID = postID {
                     // Share and Contains End Time
-                    NFCWriteService.instance.AddEndTimeInCloudStore(pitEndTime: currentTime, postID: postID)
+                    NFCWriteService.instance.AddEndTimeInCloudStore(pitEndTime: currentTime, postID: postID, userID: userID)
                 } else {
                     print("Error postID is nil")
                 }

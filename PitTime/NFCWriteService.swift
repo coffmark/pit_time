@@ -29,7 +29,7 @@ struct NFCWriteService {
         }
     }
 
-    func AddEndTimeInCloudStore(pitEndTime: String, postID: String) {
+    func AddEndTimeInCloudStore(pitEndTime: String, postID: String, userID: String) {
         // Uplaod Post End Time And Use Post ID
         DataService.instance.uploadPostAddEndTime(pitEndTime: pitEndTime, postID: postID) { success in
             if success {

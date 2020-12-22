@@ -23,7 +23,7 @@ class PitArrayObject: ObservableObject {
     }
 
     init(userID: String) {
-        print("GET POSTS FOR USER ID")
+        print("GET POSTS FOR USER ID: \(userID)")
         DataService.instance.downloadPostsForProfile(userID: userID) { returnedPosts in
             self.pitArray.append(contentsOf: returnedPosts)
         }
