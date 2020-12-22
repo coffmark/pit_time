@@ -59,7 +59,7 @@ struct ProfileHeaderView: View {
 
 struct ProfileHeaderView_Previews: PreviewProvider {
 
-    @State static var uiImage = UIImage(named: "noimage")!
+    @State static var uiImage = UIImage(named: "logo.loading")!
     @State static var profileDisplayPreviewName: String = "Ryosuke"
 
     static var previews: some View {

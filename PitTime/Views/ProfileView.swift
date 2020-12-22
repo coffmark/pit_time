@@ -16,8 +16,7 @@ struct ProfileView: View {
 
     @State var showSettings: Bool = false
     @State var showChangeImage: Bool = false
-    @State var profileImage = UIImage(named: "noimage")!
-
+    @State var profileImage = UIImage(named: "logo.loading")!
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             ScrollView(.vertical, showsIndicators: false, content: {

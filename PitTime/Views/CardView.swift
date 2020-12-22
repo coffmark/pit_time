@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
 
     @State var pit: PitModel
-    @State var image = UIImage(named: "noimage")!
+    @State var image = UIImage(named: "logo.loading")!
 
     var body: some View {
         VStack(alignment: .center, spacing: 0, content: {
