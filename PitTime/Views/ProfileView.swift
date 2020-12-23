@@ -51,19 +51,19 @@ struct ProfileView: View {
                 .sheet(isPresented: $showFileExporter, content: {
                     FileExportView()
                 }), trailing:
-                Button(action: {
-                    showSettings.toggle()
-                }, label: {
-                    Image(systemName: "line.horizontal.3")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                })
-                .sheet(isPresented: $showSettings, content: {
-                    SettingsView()
-                        .preferredColorScheme(colorScheme)
-                })
-                .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
-                .opacity(isMyProfile ? 1.0 : 0.0)
+                    Button(action: {
+                        showSettings.toggle()
+                    }, label: {
+                        Image(systemName: "line.horizontal.3")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    })
+                    .sheet(isPresented: $showSettings, content: {
+                        SettingsView()
+                            .preferredColorScheme(colorScheme)
+                    })
+                    .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
+                    .opacity(isMyProfile ? 1.0 : 0.0)
         )
     }
     func downloadCsvFile() {

@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct FileExportView: View {
-
-    @State private var document = MessageDocument(message: "Hello World")
-    @State private var isImporting: Bool = false
+    @Environment(\.presentationMode) var presentaionMode
+    @State private var document = MessageDocument(message: "Hello World!, kamimura, hifehife, fehifehi")
     @State private var isExporting: Bool = false
+
+    // Alert
+    @State private var showSuccess: Bool = false
 
     var body: some View {
         VStack {
-            GroupBox(label: Text("Message: "), content: {
-                TextEditor(text: $document.message)
+            GroupBox(label: Text("CSVファイル"), content: {
+                Text(document.message)
+                    .font(.footnote)
             })
             GroupBox {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isImporting = true
-                    }, label: {
-                        Text("Import")
-                    })
-                    Spacer()
-                    Button(action: {
-                        isExporting = true
+                        self.isExporting.toggle()
                     }, label: {
                         Text("Export")
                     })
@@ -37,13 +34,19 @@ struct FileExportView: View {
             }
         }
         .padding()
-        .fileExporter(isPresented: $isExporting, document: document, contentType: .plainText, defaultFilename: "Message") { result in
+        .fileExporter(isPresented: $isExporting, document: document, contentType: .commaSeparatedText, defaultFilename: "CommaSeparated") { result in
             if case .success = result {
                 // Handle Success
                 print("Success")
+                self.showSuccess.toggle()
+                self.presentaionMode.wrappedValue.dismiss()
             } else {
                 // Handle Failure
+                print("Error Can't Export CSV File")
             }
+        }
+        .alert(isPresented: $showSuccess) { () -> Alert in
+            Alert(title: Text("Success Export CSV File!😳"))
         }
     }
 }
