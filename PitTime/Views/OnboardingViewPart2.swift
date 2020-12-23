@@ -17,7 +17,7 @@ struct OnboardingViewPart2: View {
     @Binding var provider: String
     let sourceType: UIImagePickerController.SourceType = .photoLibrary
 
-    @State var imageSelected = UIImage(named: "noimage")!
+    @State var imageSelected = UIImage(named: "logo.loading")!
 
     @State var showImagePicker: Bool = false
 

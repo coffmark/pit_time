@@ -40,6 +40,8 @@
 		9274F837256E2FEB0091D593 /* SignInWithGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */; };
 		9274F83C256F347D0091D593 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F83B256F347D0091D593 /* SettingsView.swift */; };
 		9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F843256F34E90091D593 /* ProfileHeaderView.swift */; };
+		927A25B92591FEFA00A914BE /* MessageDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A25B82591FEFA00A914BE /* MessageDocument.swift */; };
+		927A25BE2592B78400A914BE /* FileExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A25BD2592B78400A914BE /* FileExportView.swift */; };
 		928138A12586F8D5007F0DC9 /* TutorialHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */; };
 		92895C102574847D00330927 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92895C0F2574847C00330927 /* SettingsLabelView.swift */; };
 		9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */; };
@@ -104,6 +106,8 @@
 		9274F836256E2FEB0091D593 /* SignInWithGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInWithGoogle.swift; path = Views/SignInWithGoogle.swift; sourceTree = "<group>"; };
 		9274F83B256F347D0091D593 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9274F843256F34E90091D593 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		927A25B82591FEFA00A914BE /* MessageDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDocument.swift; sourceTree = "<group>"; };
+		927A25BD2592B78400A914BE /* FileExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExportView.swift; sourceTree = "<group>"; };
 		928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHomeView.swift; sourceTree = "<group>"; };
 		92895C0F2574847C00330927 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				9274F826256E287D0091D593 /* OnboardingViewPart2.swift */,
 				9274F843256F34E90091D593 /* ProfileHeaderView.swift */,
 				926FA3EA257DB791005530FA /* SettingsView */,
+				927A25BD2592B78400A914BE /* FileExportView.swift */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				9234A117256C9F6E00F8D835 /* NFCWrite.swift */,
 				9234A11C256CA04000F8D835 /* DateFormatter.swift */,
 				9234A125256CAE6100F8D835 /* Enum & Structs.swift */,
+				927A25B82591FEFA00A914BE /* MessageDocument.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 				9227328B2574BAF900FE37EC /* DataService.swift in Sources */,
 				9234A0D0256B7AED00F8D835 /* HomeView.swift in Sources */,
 				922730A4257DD44000FE778E /* ImagePicker.swift in Sources */,
+				927A25BE2592B78400A914BE /* FileExportView.swift in Sources */,
 				92E3CE5D259026A5007A85DB /* ProfileNonPostsView.swift in Sources */,
 				92895C102574847D00330927 /* SettingsLabelView.swift in Sources */,
 				92C55A5E256B77FF0091C1C4 /* ContentView.swift in Sources */,
@@ -706,6 +713,7 @@
 				92402010258B28C500BAAA65 /* CardDefaultContentView.swift in Sources */,
 				9274F81F256DEFC70091D593 /* SignInWithApple.swift in Sources */,
 				9234A0EE256B7FA500F8D835 /* Extensions.swift in Sources */,
+				927A25B92591FEFA00A914BE /* MessageDocument.swift in Sources */,
 				9274F83C256F347D0091D593 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

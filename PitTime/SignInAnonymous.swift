@@ -26,10 +26,9 @@ class SignInAnonymous {
                     return
                 }
                 let isAnonymous = user.isAnonymous
-                let fullName: String = "匿名"
+                let fullName: String = "anonymous"
                 let email: String = "example.gmail"
                 let provider: String = "anonymous"
-
                 self.onboardingView.connectToFirebaseForAnonymous(name: fullName, email: email, provider: provider, isAnonymous: isAnonymous)
             }
         }

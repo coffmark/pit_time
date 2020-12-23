@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
+
     @ObservedObject var pits: PitArrayObject
     var profileUserID: String
     @State var profileDisplayName: String
@@ -16,7 +17,10 @@ struct ProfileView: View {
 
     @State var showSettings: Bool = false
     @State var showChangeImage: Bool = false
-    @State var profileImage = UIImage(named: "noimage")!
+    @State var profileImage = UIImage(named: "logo.loading")!
+
+    // Show File Exporter
+    @State var showFileExporter: Bool = false
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -36,21 +40,44 @@ struct ProfileView: View {
         .navigationBarTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(
-            trailing:
+            leading:
                 Button(action: {
-                    showSettings.toggle()
+                    self.showFileExporter.toggle()
                 }, label: {
-                    Image(systemName: "line.horizontal.3")
+                    Image(systemName: "square.and.arrow.up")
                         .resizable()
                         .frame(width: 20, height: 20)
                 })
-                .sheet(isPresented: $showSettings, content: {
-                    SettingsView()
-                        .preferredColorScheme(colorScheme)
-                })
-                .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
-                .opacity(isMyProfile ? 1.0 : 0.0)
+                .sheet(isPresented: $showFileExporter, content: {
+                    FileExportView()
+                }), trailing:
+                    Button(action: {
+                        showSettings.toggle()
+                    }, label: {
+                        Image(systemName: "line.horizontal.3")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    })
+                    .sheet(isPresented: $showSettings, content: {
+                        SettingsView()
+                            .preferredColorScheme(colorScheme)
+                    })
+                    .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
+                    .opacity(isMyProfile ? 1.0 : 0.0)
         )
+    }
+    func downloadCsvFile() {
+        do {
+            let fileManager = FileManager.default
+            let docs = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let path = docs.appendingPathComponent("myFile.txt")
+            let data = "Hello.world!".data(using: .utf8)!
+
+            fileManager.createFile(atPath: path.path, contents: data, attributes: nil)
+            print("File Manager Done!")
+        } catch {
+            print(error)
+        }
     }
 }
 
