@@ -40,30 +40,20 @@ struct ProfileView: View {
         .navigationBarTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(
-            leading:
+            trailing:
                 Button(action: {
-                    self.showFileExporter.toggle()
+                    showSettings.toggle()
                 }, label: {
-                    Image(systemName: "square.and.arrow.up")
+                    Image(systemName: "line.horizontal.3")
                         .resizable()
                         .frame(width: 20, height: 20)
                 })
-                .sheet(isPresented: $showFileExporter, content: {
-                    FileExportView()
-                }), trailing:
-                    Button(action: {
-                        showSettings.toggle()
-                    }, label: {
-                        Image(systemName: "line.horizontal.3")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    })
-                    .sheet(isPresented: $showSettings, content: {
-                        SettingsView()
-                            .preferredColorScheme(colorScheme)
-                    })
-                    .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
-                    .opacity(isMyProfile ? 1.0 : 0.0)
+                .sheet(isPresented: $showSettings, content: {
+                    SettingsView()
+                        .preferredColorScheme(colorScheme)
+                })
+                .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
+                .opacity(isMyProfile ? 1.0 : 0.0)
         )
     }
     func downloadCsvFile() {
