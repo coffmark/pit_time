@@ -21,24 +21,22 @@ struct ContentView: View {
     var body: some View {
         TabView {
             // MARK: HOME VIEW
-            NavigationView {
-                HomeView(pits: feedPosts)
-            }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-
+            HomeView(pits: feedPosts, navigationBarTitle: "Home")
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home".uppercased())
+                }
             // MARK: UPLOAD VIEW
             NavigationView {
                 UploadView()
+                    // FETCH FROM PIT ARRAY OBJECT
                     .onDisappear(perform: {
                         self.feedPosts = PitArrayObject(shuffled: false)
                     })
             }
             .tabItem {
                 Image(systemName: "square.and.arrow.up.fill")
-                Text("Upload")
+                Text("Upload".uppercased())
             }
 
             // MARK: PROFILE VIEW
@@ -53,7 +51,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "person.fill")
-                Text("Profile")
+                Text("Profile".uppercased())
             }
         }
         .accentColor(colorScheme == .light ? .black : Color.MyTheme.orangeColor)

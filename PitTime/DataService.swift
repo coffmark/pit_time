@@ -30,6 +30,10 @@ class DataService {
             DatabasePostField.dateCreated: FieldValue.serverTimestamp()
         ]
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            UserDefaults.standard.set(true, forKey: CurrentUserDefaults.isFirstUpload)
+        }
+
         document.setData(postData) {error in
             if let error = error {
                 print("Error uploading data to post document.\(error)")

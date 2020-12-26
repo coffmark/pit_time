@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
-
+    @AppStorage(CurrentUserDefaults.isFirstUpload) var isAlreadyUpload: Bool?
     @ObservedObject var pits: PitArrayObject
 
     var profileUserID: String
@@ -28,17 +28,20 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false, content: {
                 ProfileHeaderView(profileImage: $profileImage, profileDisplayName: $profileDisplayName)
                 Divider()
-                if pits.pitArray.isEmpty {
-                    // Non Posts
-                    ProfileNonPostsView()
-                } else {
-                    HomeView(pits: pits)
+
+                if let isAlreadyUpload = isAlreadyUpload {
+                    if isAlreadyUpload {
+                        HomeView(pits: pits, navigationBarTitle: "Profile")
+                    } else {
+                        ProfileNonPostsView()
+                    }
                 }
+
             })
             .offset(x: 0, y: 20)
 
         }
-        .navigationBarTitle("Profile")
+        .navigationBarTitle("Profile".uppercased())
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(
             trailing:

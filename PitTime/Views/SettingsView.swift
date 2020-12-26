@@ -24,7 +24,7 @@ struct SettingsView: View {
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 120, height: 120, alignment: .center)
-                                        .cornerRadius(10)
+                                        .cornerRadius(20)
                                     VStack {
                                         Text("ピッとたいむは、あなたのための時間管理アプリ")
                                             .font(.footnote)

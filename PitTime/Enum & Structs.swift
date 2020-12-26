@@ -34,4 +34,5 @@ struct CurrentUserDefaults {
     static let bio = "bio"
     static let userID = "user_id"
     static let isFirstVisit = "is_first_visit"
+    static let isFirstUpload = "is_first_upload"
 }
