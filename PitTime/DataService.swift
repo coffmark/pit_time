@@ -81,6 +81,17 @@ class DataService {
         }
     }
 
+    // For Export CSV File
+    func downloadAndExportPitTime(userID: String, handler: @escaping(_ exportsText: [String]) -> Void) {
+        REF_POSTS.whereField(DatabasePostField.userID, isEqualTo: userID).getDocuments { querySnapshot, error in
+            if let error = error {
+                print("Error : Download Posts And Exports PitTime \(error)")
+            } else {
+                handler(self.getPostFromSnapshotForExport(querySnapshot: querySnapshot))
+            }
+        }
+    }
+
     // MARK: PRIVATE FUNCTIONS
     private func getPostFromSnapshot(querySnapshot: QuerySnapshot?) -> [PitModel] {
         var postArray = [PitModel]()
@@ -108,6 +119,34 @@ class DataService {
         } else {
             print("No documents in snapshot found for this user")
             return postArray
+        }
+    }
+
+    private func getPostFromSnapshotForExport(querySnapshot: QuerySnapshot?) -> [String] {
+        var exportTexts = [String]()
+        var initialText: String = "表示名,出社時刻,退社時刻\n"
+        exportTexts.append(initialText)
+        if let snapshot = querySnapshot, snapshot.documents.isEmpty != true {
+            for document in snapshot.documents {
+                // temporary text
+                var text: String = ""
+                if let displayName = document.get(DatabasePostField.displayName) as? String,
+                   let pitBeginTime = document.get(DatabasePostField.pitBeginTime) as? String {
+
+                    // Check Exist pitEndTime
+                    if let pitEndTime = document.get(DatabasePostField.pitEndTime) as? String {
+                        text += displayName + "," + pitBeginTime + "," + pitEndTime + "\n"
+                        exportTexts.append(text)
+                    } else {
+                        text += displayName + "," + pitBeginTime + "\n"
+                        exportTexts.append(text)
+                    }
+                }
+            }
+            return exportTexts
+        } else {
+            print("No documents in snapshot found")
+            return exportTexts
         }
     }
 }

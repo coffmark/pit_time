@@ -11,6 +11,7 @@ struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var pits: PitArrayObject
+
     var profileUserID: String
     @State var profileDisplayName: String
     var isMyProfile: Bool
@@ -55,19 +56,6 @@ struct ProfileView: View {
                 .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
                 .opacity(isMyProfile ? 1.0 : 0.0)
         )
-    }
-    func downloadCsvFile() {
-        do {
-            let fileManager = FileManager.default
-            let docs = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            let path = docs.appendingPathComponent("myFile.txt")
-            let data = "Hello.world!".data(using: .utf8)!
-
-            fileManager.createFile(atPath: path.path, contents: data, attributes: nil)
-            print("File Manager Done!")
-        } catch {
-            print(error)
-        }
     }
 }
 
