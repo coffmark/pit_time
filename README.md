@@ -1,27 +1,53 @@
-# ピッとタイムとは
+# ピッとタイム
 
-## 朝の生産性を上げる勤怠管理アプリ
+## **🎉 プロダクト**
 
-## コンセプト
-・無料で簡単に利用できる勤怠管理アプリです！
+### みんなで一緒に勤怠管理するアプリ
 
-・朝の作業開始時間を記録することができます！
+## **🌐 アプリURL**
 
-・一緒に朝の時間を管理して、一緒に1日の生産性をあげましょう！
+[ピッとタイムApp Store](https://apps.apple.com/jp/app/%E3%83%94%E3%83%83%E3%81%A8%E3%82%BF%E3%82%A4%E3%83%A0/id1543102679)
 
-## Slide Share
-[![Slide Share](https://user-images.githubusercontent.com/52638834/103609305-eb6a5080-4f60-11eb-84ed-1cd3082a90d2.png)](https://www.slideshare.net/ssuserb3c00a/ss-240916757)
+## **📊 マーケット**
 
-## 構成図
+- 自分の時間をオープンにして時間を管理したい人
+- 他のユーザーの時間管理具合を見て、刺激を貰いたい人
 
+## **🌀 ユーザーの課題**
+
+- 1日の生産性がなかなか上がらない！
+- 1日なんとなく作業したけど、達成感が湧かない！
+- 1日の始まりを計測したい！
+
+## **💡 解決方法**
+
+時間をみんなで共有することで時間を管理する勤怠管理アプリを作成
+
+## **✅ 使用技術**
+
+### サーバーサイド
+
+- CloudStore
+- Cloud Storage
+- Firebase Authentication
+
+### クライアントサイド
+
+- SwiftUI
+- Swift
+- CoreNFC
+
+- SwiftLint
+
+## **🗺 構成図**
 <img src="https://user-images.githubusercontent.com/52638834/101616404-ac74d800-3a52-11eb-95b3-b58cd2d56655.png" width="768px"/>
 
-## 詳細
-<img src="https://user-images.githubusercontent.com/52638834/101588959-da462680-3a2a-11eb-825a-03459ecd2060.png" width="256px"/>
 
-### ピッとタイムの機能
+## **🎬 Slide Share**
+[![Slide Share](https://user-images.githubusercontent.com/52638834/103609305-eb6a5080-4f60-11eb-84ed-1cd3082a90d2.png)](https://www.slideshare.net/ssuserb3c00a/ss-240916757)
 
-*※ピッとタイムをご利用いただくにはNFCタグが必要です※*
+
+## **⚙️ ピッとタイムの機能**
 
 - NFCタグを用いて時間の入力
 
@@ -33,19 +59,8 @@
 
 - 匿名ログイン機能
 
-その他皆さんの時間管理に役立つ機能を多数提供しております!
 <p text-align="center">
 <img src="https://user-images.githubusercontent.com/52638834/101588979-e6ca7f00-3a2a-11eb-8a1e-d2088fcf7b30.jpg" width="256px"/>
 <img src="https://user-images.githubusercontent.com/52638834/101588994-edf18d00-3a2a-11eb-9e05-a13dbab04a81.jpg" width="256px"/>
 <img src="https://user-images.githubusercontent.com/52638834/101588991-ec27c980-3a2a-11eb-8282-dcbfcd3f9a14.jpg" width="256px"/>
 </p>
-
-
-### ピッとタイム技術スタック
-
-- クライアントサイド  SwiftUI
-- サーバーサイド     Firebase
-
-### 開発補助ツール
-<img src="https://user-images.githubusercontent.com/52638834/103144046-06b9ac80-4766-11eb-8fc3-eaff4d227087.jpg" width="256px"/>
-
