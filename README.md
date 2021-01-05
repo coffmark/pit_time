@@ -44,7 +44,7 @@
 
 
 ## **🎬 Slide Share**
-[![Slide Share](https://user-images.githubusercontent.com/52638834/103609305-eb6a5080-4f60-11eb-84ed-1cd3082a90d2.png)](https://www.slideshare.net/ssuserb3c00a/ss-240916757)
+[![Slide Share](https://user-images.githubusercontent.com/52638834/103611012-b2cc7600-4f64-11eb-8292-1b81994399c2.png)](https://www.slideshare.net/ssuserb3c00a/ss-240916757)
 
 
 ## **⚙️ ピッとタイムの機能**
