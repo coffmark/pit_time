@@ -1,7 +1,6 @@
 # ピッとタイムとは
 
 ## 朝の生産性を上げる勤怠管理アプリ
-**※「ピッとタイム」は「ピッとたいむ」のアップデート版です。**
 
 ## コンセプト
 ・無料で簡単に利用できる勤怠管理アプリです！
@@ -10,10 +9,10 @@
 
 ・一緒に朝の時間を管理して、一緒に1日の生産性をあげましょう！
 
+## Slide Share
+[![Slide Share](https://user-images.githubusercontent.com/52638834/103609305-eb6a5080-4f60-11eb-84ed-1cd3082a90d2.png)](https://www.slideshare.net/ssuserb3c00a/ss-240916757)
 
-## 前バージョンと何が変わったか？
-
-**→共有機能が追加され、デザインを一新しました！**
+## 構成図
 
 <img src="https://user-images.githubusercontent.com/52638834/101616404-ac74d800-3a52-11eb-95b3-b58cd2d56655.png" width="768px"/>
 
