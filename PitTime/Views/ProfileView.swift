@@ -59,6 +59,18 @@ struct ProfileView: View {
                 .accentColor(colorScheme == .light ? Color.MyTheme.blueColor : Color.MyTheme.orangeColor)
                 .opacity(isMyProfile ? 1.0 : 0.0)
         )
+        .onAppear(perform: {
+            getProfileImage()
+        })
+    }
+
+    // MARK: FUNCTIONS
+    func getProfileImage() {
+        ImageManager.instance.downloadProfileImage(userID: profileUserID) { returnedImage in
+            if let displayImage = returnedImage {
+                self.profileImage = displayImage
+            }
+        }
     }
 }
 

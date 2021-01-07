@@ -26,7 +26,6 @@
 		9234A118256C9F6E00F8D835 /* NFCWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A117256C9F6E00F8D835 /* NFCWrite.swift */; };
 		9234A11D256CA04000F8D835 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A11C256CA04000F8D835 /* DateFormatter.swift */; };
 		9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234A125256CAE6100F8D835 /* Enum & Structs.swift */; };
-		92353E0C257DC37A0008AB67 /* ImageManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92353E0B257DC37A0008AB67 /* ImageManeger.swift */; };
 		92402010258B28C500BAAA65 /* CardDefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240200F258B28C500BAAA65 /* CardDefaultContentView.swift */; };
 		9240204A258B2F3500BAAA65 /* CardContentInEndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92402049258B2F3500BAAA65 /* CardContentInEndTimeView.swift */; };
 		926F328A256DDFCC004E1251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F3289256DDFCC004E1251 /* GoogleService-Info.plist */; };
@@ -41,6 +40,7 @@
 		9274F83C256F347D0091D593 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F83B256F347D0091D593 /* SettingsView.swift */; };
 		9274F844256F34E90091D593 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274F843256F34E90091D593 /* ProfileHeaderView.swift */; };
 		928138A12586F8D5007F0DC9 /* TutorialHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */; };
+		9284FEB125A6C0600073F57E /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284FEB025A6C0600073F57E /* ImageManager.swift */; };
 		92895C102574847D00330927 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92895C0F2574847C00330927 /* SettingsLabelView.swift */; };
 		9293F67E25785CA900B208B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */; };
 		92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C55A5B256B77FF0091C1C4 /* PitTimeApp.swift */; };
@@ -90,7 +90,6 @@
 		9234A11C256CA04000F8D835 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9234A121256CA28800F8D835 /* PitTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PitTime.entitlements; sourceTree = "<group>"; };
 		9234A125256CAE6100F8D835 /* Enum & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum & Structs.swift"; sourceTree = "<group>"; };
-		92353E0B257DC37A0008AB67 /* ImageManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManeger.swift; path = ../../../../.Trash/ImageManeger.swift; sourceTree = "<group>"; };
 		9240200F258B28C500BAAA65 /* CardDefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDefaultContentView.swift; sourceTree = "<group>"; };
 		92402049258B2F3500BAAA65 /* CardContentInEndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentInEndTimeView.swift; sourceTree = "<group>"; };
 		926F3289256DDFCC004E1251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info/PitTime/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		9274F83B256F347D0091D593 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9274F843256F34E90091D593 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		928138A02586F8D5007F0DC9 /* TutorialHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHomeView.swift; sourceTree = "<group>"; };
+		9284FEB025A6C0600073F57E /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		92895C0F2574847C00330927 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		9293F67D25785CA900B208B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92C55A58256B77FF0091C1C4 /* PitTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,8 +237,8 @@
 		92353DAA257DBF210008AB67 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				92353E0B257DC37A0008AB67 /* ImageManeger.swift */,
 				922730A3257DD44000FE778E /* ImagePicker.swift */,
+				9284FEB025A6C0600073F57E /* ImageManager.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -686,10 +686,10 @@
 				9274F837256E2FEB0091D593 /* SignInWithGoogle.swift in Sources */,
 				92226CE72578A827003213CD /* SignInAnonymous.swift in Sources */,
 				9234A0DD256B7B2300F8D835 /* ProfileView.swift in Sources */,
+				9284FEB125A6C0600073F57E /* ImageManager.swift in Sources */,
 				922732862574AF1500FE37EC /* SettingsRowView.swift in Sources */,
 				9234A126256CAE6100F8D835 /* Enum & Structs.swift in Sources */,
 				92E16F6F258C255E00B924E7 /* NFCWriteService.swift in Sources */,
-				92353E0C257DC37A0008AB67 /* ImageManeger.swift in Sources */,
 				92C55A5C256B77FF0091C1C4 /* PitTimeApp.swift in Sources */,
 				9240204A258B2F3500BAAA65 /* CardContentInEndTimeView.swift in Sources */,
 				9234A10A256B881E00F8D835 /* CardView.swift in Sources */,

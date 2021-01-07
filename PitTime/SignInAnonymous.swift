@@ -11,9 +11,12 @@ import SwiftUI
 
 class SignInAnonymous {
 
+    // PROPERTIES
     static let instance = SignInAnonymous()
+
     var onboardingView: OnboardingView!
 
+    // FUNCTIONS
     func signInAnonymous(view: OnboardingView!) {
         self.onboardingView = view
         Auth.auth().signInAnonymously { authResult, error in

@@ -13,7 +13,7 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     @AppStorage(CurrentUserDefaults.isFirstVisit) var isCurrentUserFirstVisit: Bool?
     // Feed Posts
-    @State var feedPosts = PitArrayObject(shuffled: false)
+    @State var feedPosts = PitArrayObject()
 
     // Full Screen Cover
     @State var isShowTutorialView: Bool = false

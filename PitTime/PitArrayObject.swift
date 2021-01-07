@@ -9,7 +9,12 @@ import Foundation
 
 class PitArrayObject: ObservableObject {
     @Published var pitArray = [PitModel]()
-    @Published var pitExportArray = [String]()
+
+    init() {
+        DataService.instance.downloadPostsForFeed { returnedPosts in
+            self.pitArray.append(contentsOf: returnedPosts)
+        }
+    }
 
     init(shuffled: Bool) {
         print("GET POSTS FOR FEED > SHUFFLED : \(shuffled)")
@@ -23,6 +28,7 @@ class PitArrayObject: ObservableObject {
         }
     }
 
+    @Published var pitExportArray = [String]()
     // For pitUserText
     init(userID: String, isExports: Bool) {
         if isExports {

@@ -109,7 +109,7 @@ class DataService {
                     let date = timestamp.dateValue()
                     let postID = document.documentID
 
-                    // Check Contain ENDTIME
+                    // Check if contain PIT-ENDTIME
                     if let pitEndTime = document.get(DatabasePostField.pitEndTime) as? String {
                         let newPost = PitModel(postID: postID, userID: userID, username: displayName, dateCreated: date, pitBeginTime: pitBeginTime, pitEndTime: pitEndTime)
                         postArray.append(newPost)

@@ -37,6 +37,7 @@ class SignInWithGoogle: NSObject, GIDSignInDelegate {
         let email: String = user.profile.email
         let idToken: String = user.authentication.idToken
         let accessToken: String = user.authentication.accessToken
+
         let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
 
         self.onboardingView.connectToFirebase(name: fullName, email: email, provider: "google", credentical: credential)

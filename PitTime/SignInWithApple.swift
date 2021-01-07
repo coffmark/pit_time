@@ -64,7 +64,6 @@ class SignInWithApple: NSObject, ASAuthorizationControllerDelegate {
                                                       rawNonce: nonce)
             // Sign in with Firebase.
             self.onboardingView.connectToFirebase(name: name, email: email, provider: "apple", credentical: credential)
-
         }
     }
 

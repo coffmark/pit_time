@@ -46,6 +46,7 @@ struct ProfileHeaderView: View {
             Alert(title: Text("Error"), message: Text("アップロードすることができませんでした。AppleかGoogleでサインインしてください"), dismissButton: .default(Text("OK")))
         })
     }
+    // MARK: FUNCTIONS
 
     func afterChoosePhoto() {
         if let userID = currentUserID {

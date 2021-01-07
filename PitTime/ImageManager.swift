@@ -2,7 +2,7 @@
 //  ImageManager.swift
 //  PitTime
 //
-//  Created by 神村亮佑 on 2020/12/07.
+//  Created by 神村亮佑 on 2021/01/07.
 //
 
 import Foundation
@@ -26,6 +26,17 @@ class ImageManager {
         DispatchQueue.global(qos: .userInteractive).async {
             self.uploadImage(path: path, image: image) { _ in
 
+            }
+        }
+    }
+
+    func downloadProfileImage(userID: String, handler: @escaping(_ image: UIImage?) -> Void) {
+        let path = getProfileImagePath(userID: userID)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.downloadImage(path: path) { returnedImage in
+                DispatchQueue.main.async {
+                    handler(returnedImage)
+                }
             }
         }
     }
@@ -84,5 +95,27 @@ class ImageManager {
             }
         }
 
+    }
+
+    private func downloadImage(path: StorageReference, handler: @escaping(_ image: UIImage?) -> Void) {
+        if let cachedImage = imageCache.object(forKey: path) {
+            print("Image Found in cache")
+            handler(cachedImage)
+            return
+        } else {
+            path.getData(maxSize: 27 * 1024 * 1024) { returnedImageData, error in
+                if let data = returnedImageData, let image = UIImage(data: data) {
+                    // Success getting image data
+                    imageCache.setObject(image, forKey: path)
+                    handler(image)
+                    return
+                } else {
+                    print("Error getting data from path for image: \(error)")
+                    handler(nil)
+                    return
+                }
+            }
+
+        }
     }
 }
